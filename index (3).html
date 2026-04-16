@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Guapaletas — Helados Artesanales</title>
+  <meta name="description" content="Guapaletas — Paletas artesanales con ingredientes naturales. Más de 30 sabores."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="estilos.css"/>
+</head>
+<body>
+
+<!-- BOTÓN WHATSAPP FLOTANTE -->
+<a class="whatsapp-float" href="https://wa.me/5492966231199" target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="navbar-logo">
+    <svg width="567" height="405" viewBox="0 0 567 405" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120.447 236.845C122.227 237.346 123.493 241.513 122.654 242.72C122.301 243.221 117.224 243.074 116.708 245.194C117.695 254.854 111.94 292.151 116.635 298.1C118.033 299.867 123.111 301.074 124.126 300.161C124.626 299.719 121.58 291.223 121.344 288.97C120.344 278.987 126.79 251.526 134.369 244.9C139.712 240.232 144.451 243.309 148.218 242.72C149.602 242.5 149.293 239.628 151.589 238.627C157.152 236.183 169.617 237.346 175.387 239.319C187.028 243.295 174.503 245.445 173.356 247.108C171.486 249.818 172.178 297.732 174.916 301.634C177.653 305.536 179.655 299.101 182.995 300.809C191.06 304.917 180.802 317.728 173.429 317.728C169.087 317.728 164.79 312.117 161.67 312.014C158.815 311.926 155.577 315.372 152.501 316.034C137.548 319.259 131.867 309.187 128.1 309.276C125.863 309.32 122.522 311.941 118.931 312.029C115.34 312.117 112.293 309.968 109.055 310.733C106.789 311.263 103.875 314.738 100.873 315.916C93.5876 318.788 86.3319 318.508 79.4589 314.665C76.4419 314.444 70.5108 302.532 68.2296 304.578C67.5526 305.182 65.1684 315.077 65.2125 317.021C65.3597 322.911 69.0685 331.068 69.6572 337.724C71.0406 353.302 71.9236 383.959 61.5921 395.871C34.3356 427.293 10.4346 369.161 26.7414 347.751L41.709 322.248C22.0613 326.533 2.28123 316.446 0.456278 295.052C-1.17735 275.983 1.36875 259.094 11.6709 242.853C22.3704 225.993 24.6957 233.032 39.8693 235.034C44.4905 235.653 48.9352 231.971 54.9104 236.168C63.7261 242.367 55.661 268.827 57.8539 278.869L60.8415 295.729C61.3566 291.4 65.9043 288.764 66.6843 284.627C67.8028 278.648 67.6115 254.382 66.8609 247.83C66.4341 244.105 60.7532 244.782 60.8709 240.541C61.651 237.228 81.0631 235.167 83.9771 236.418C92.2483 239.996 83.256 242.249 82.9028 243.751C80.7393 253.116 80.3125 282.227 81.5929 291.93C83.7564 308.157 94.4559 306.507 96.1925 290.59C97.4729 278.855 98.1058 261.141 97.7231 249.288C97.576 244.87 96.222 241.145 96.1778 236.845C102.698 238.009 114.825 235.255 120.461 236.845H120.447ZM41.5029 251.791C31.0831 244.208 20.5749 264.159 18.7941 272.081C16.5423 282.109 15.4091 310.056 31.451 306.949C51.393 303.091 39.6633 265.234 41.5029 251.791ZM155.032 297.952C156.916 289.221 155.032 265.853 155.032 255.251C155.032 255.03 153.399 251.511 152.692 251.511C136.386 253.793 137.637 298.586 146.173 303.96C149.145 305.83 154.473 300.529 155.032 297.952ZM53.4828 331.083C50.039 330.347 51.1133 331.51 50.1861 332.967C40.5463 348.075 31.9955 380.719 52.6881 390.011C57.3829 384.224 53.5859 377.671 53.424 371.62C53.0707 358.132 53.8213 344.556 53.4828 331.068V331.083Z" fill="#5BC6E4"/>
+      <path d="M436.016 175.149C437.075 180.553 431.144 191.331 433.882 195.689C436.619 200.048 451.027 187.385 451.027 202.242C451.027 218.571 434.765 205.687 433.205 214.022C434.161 234.297 431.88 255.707 433.205 275.85C433.72 283.566 434.647 303.312 445.611 301.677C454.78 300.308 447.289 289.205 446.597 283.08C445.391 272.257 451.866 240.982 462.654 236.153C466.893 234.253 471.367 236.315 474.855 235.416C476.356 235.034 476.253 232.427 477.327 231.735C480.609 229.6 506.497 231.338 508.189 233.988C511.207 238.7 504.128 238.774 502.317 240.482C498.932 243.692 502.567 247.432 502.42 250.907C502.288 254.102 500.934 256.944 500.89 259.683C500.801 264.63 501.125 293.181 503.745 295.08C510.691 300.146 506.526 290.089 506.703 286.231C507.115 277.337 513.223 270.962 522.274 272.081C534.637 273.612 519.581 297.495 533.974 298.791C549.413 300.19 548.441 274.113 535.829 268.871C530.884 266.809 526.13 268.341 520.743 264.821C513.193 259.889 512.899 248.801 514.224 240.614C515.725 231.308 532.473 223.99 541.407 225.036C566.249 227.936 566.043 261.965 544.615 255.677C539.361 254.131 538.978 247.549 537.874 243.25C537.492 241.777 538.493 238.582 535.49 239.804C531.031 241.615 529.015 249.287 530.236 253.616C530.575 254.853 548.559 260.89 553.475 264.483C582.88 286.025 560.142 328.343 525.335 313.251C521.832 311.734 514.135 304.651 513.399 304.666C512.104 304.666 507.277 314.002 496.842 309.363C494.37 308.274 492.677 304.681 489.896 304.607C483.935 304.46 479.932 313.074 466.922 309.835C463.817 309.069 460.476 305.52 457.783 306.212C455.928 306.683 450.321 312.456 446.023 313.737C429.864 318.551 413.984 307.214 412.527 290.648C410.275 265.219 413.645 235.946 414.057 210.326L399.34 211.813C400.606 208.191 397.751 201.992 398.207 199.459C399.355 193.054 413.057 196.617 414.057 195.616C414.72 194.939 412.63 179.978 416.971 177.181C419.194 175.738 434.073 172.395 436.001 175.149H436.016ZM475.87 245.679C457.93 247.211 458.592 283.109 465.862 294.727C470.086 301.471 476.371 294.521 477.268 289.043C478.063 284.199 477.607 247.181 475.87 245.694V245.679Z" fill="#5BC6E4"/>
+      <path d="M366.741 303.371C363.224 301.339 357.528 309.776 352.686 311.632C330.64 320.083 323.296 301 321.382 283.213C320.838 278.221 322.486 269.784 321.132 265.794C320.176 263.011 315.392 263.247 315.378 259.683C315.363 257.121 319.204 255.708 319.867 252.291C320.985 246.549 319.322 238.067 319.911 231.721C320.602 224.167 326.224 180.377 331.317 177.976C344.062 171.954 350.905 188.019 352.112 198.002C355.041 222.106 347.447 229.409 341.207 248.61C338.116 258.093 339.985 278.84 342.34 288.764C345.901 303.769 351.111 299.292 355.306 287.763C361.678 270.226 357.234 239.555 377.308 231.736C404.594 221.105 414.764 256.061 394.822 272.818C386.919 279.473 372.275 280.975 377.176 292.21C385.3 310.792 396.779 291.783 404.8 291.65C414.514 291.488 407.273 305.241 401.356 308.819C389.98 315.696 378.868 314.046 368.566 306.64C367.521 305.889 367.183 303.651 366.756 303.415L366.741 303.371ZM374.335 267.752C376.572 270.314 398.884 246.078 386.58 242.882C379.751 241.115 373.85 262.304 374.335 267.752Z" fill="#5BC6E4"/>
+      <path d="M209.707 312.147C207.029 335.412 201.569 361.062 215.388 381.853C214.991 383.679 202.305 386.624 199.773 386.874C176.932 389.127 189.25 380.086 190.413 367.217C191.679 353.361 188.647 338.931 188.75 325.929C188.853 310.822 194.048 259.021 188.559 248.213C186.91 244.988 182.524 245.371 183.01 241.263C205.307 239.201 234.609 227.054 244.072 255.988C246.206 262.496 247.766 279.032 247.884 286.158C248.223 306.508 227 314.812 209.707 312.132V312.147ZM214.652 247.153C209.31 248.964 207.161 289.707 213.122 295.773C215.653 298.35 222.217 297.835 224.351 295.14C226.294 292.667 226.308 268.621 225.602 264.16C224.793 259.065 219.053 254.751 219.038 248.64C218.243 247.02 216.139 246.652 214.652 247.153Z" fill="#5BC6E4"/>
+      <path d="M313.994 235.387C317.497 239.628 307.592 241.454 306.827 243.662C305.488 261.744 305.797 279.237 308.122 297.216C327.269 290.251 321.633 313.472 305.9 312.058C300.749 311.602 297.305 306.139 294.391 306.316C287.518 306.757 285.281 314.311 271.594 310.924C244.602 304.239 249.282 261.921 261.851 244.296C269.474 233.605 271.608 238.847 280.601 236.801C281.646 236.565 281.484 234.327 282.735 234.003C287.753 232.693 311.625 232.501 314.009 235.387H313.994ZM286.017 247.137C275.715 246.578 272.3 261.95 271.461 270.122C270.873 275.836 272.55 298.188 279.409 298.791C286.767 299.454 287.018 287.365 287.474 281.725C288.401 270.226 287.209 258.505 286.017 247.137Z" fill="#5BC6E4"/>
+    </svg>
+  </a>
+  <ul class="navbar-links" id="navLinks">
+    <li><a href="#home">Inicio</a></li>
+    <li><a href="#sobre-nosotros">Nosotros</a></li>
+    <li><a href="#mas-vendidos">Destacados</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#galeria">El Local</a></li>
+    <li><a href="#contacto" class="navbar-cta">Contacto</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- SLIDER CUALIDADES -->
+<div class="qualities-slider">
+  <div class="qualities-track" id="qualitiesTrack">
+    <span class="quality-item"><span class="quality-dot"></span>🍓 Frutas frescas de temporada</span>
+    <span class="quality-item"><span class="quality-dot"></span>🌿 Sin conservantes artificiales</span>
+    <span class="quality-item"><span class="quality-dot"></span>✋ Elaboración 100% artesanal</span>
+    <span class="quality-item"><span class="quality-dot"></span>♻️ Packaging eco-friendly</span>
+    <span class="quality-item"><span class="quality-dot"></span>🧡 Más de 30 sabores únicos</span>
+    <span class="quality-item"><span class="quality-dot"></span>⭐ +10.000 clientes felices</span>
+    <span class="quality-item"><span class="quality-dot"></span>🥛 Sin colorantes ni saborizantes</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍦 Opciones sin azúcar disponibles</span>
+    <!-- duplicado para loop continuo -->
+    <span class="quality-item"><span class="quality-dot"></span>🍓 Frutas frescas de temporada</span>
+    <span class="quality-item"><span class="quality-dot"></span>🌿 Sin conservantes artificiales</span>
+    <span class="quality-item"><span class="quality-dot"></span>✋ Elaboración 100% artesanal</span>
+    <span class="quality-item"><span class="quality-dot"></span>♻️ Packaging eco-friendly</span>
+    <span class="quality-item"><span class="quality-dot"></span>🧡 Más de 30 sabores únicos</span>
+    <span class="quality-item"><span class="quality-dot"></span>⭐ +10.000 clientes felices</span>
+    <span class="quality-item"><span class="quality-dot"></span>🥛 Sin colorantes ni saborizantes</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍦 Opciones sin azúcar disponibles</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-badge">✨ Helados artesanales</span>
+      <h1 class="hero-title">El sabor que<br><em>te alegra</em><br>el día</h1>
+      <p class="hero-subtitle">Paletas artesanales hechas con fruta fresca y amor. Más de 30 sabores en versión XS y XL para todos los gustos.</p>
+      <div class="hero-actions">
+        <a href="#catalogo" class="btn-primary">Ver catálogo</a>
+        <a href="#galeria" class="btn-secondary">El local</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">30+</span><span class="stat-label">Sabores</span></div>
+        <div class="stat"><span class="stat-num">5★</span><span class="stat-label">Valoración</span></div>
+        <div class="stat"><span class="stat-num">10k+</span><span class="stat-label">Clientes</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-img-main" src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=700&auto=format&fit=crop" alt="Paleta artesanal"/>
+      <img class="hero-img-float float-1" src="https://images.unsplash.com/photo-1633933358116-a27b902fad35?w=300&auto=format&fit=crop" alt="Helado de fresa"/>
+      <img class="hero-img-float float-2" src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300&auto=format&fit=crop" alt="Paleta de chocolate"/>
+      <div class="hero-promo-tag">
+        <span class="tag-label">Guapa XL desde</span>
+        <div class="tag-price">$5.900</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" style="background:var(--crema)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#ffffff" d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"/></svg></div>
+
+<!-- SOBRE NOSOTROS -->
+<section id="sobre-nosotros">
+  <div class="sobre-inner">
+    <div class="sobre-imgs reveal">
+      <img class="sobre-img-main" src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=700&auto=format&fit=crop" alt="El local de Guapaletas"/>
+      <img class="sobre-img-sec"  src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500&auto=format&fit=crop" alt="Elaboración artesanal"/>
+      <div class="sobre-badge-float">
+        <strong>2018</strong>
+        <span>Fundada</span>
+      </div>
+    </div>
+    <div class="sobre-text reveal reveal-delay-2">
+      <span class="section-tag tag-celeste">🍦 Nuestra historia</span>
+      <h2>Somos <em>Guapaletas</em></h2>
+      <p>Nacimos en 2018 en el corazón de Palermo con una idea sencilla: hacer las paletas más ricas de Buenos Aires usando únicamente ingredientes que conocés. Sin trucos, sin laboratorio, solo fruta fresca y mucho amor.</p>
+      <p>Hoy somos un equipo de 8 personas apasionadas que se levantan temprano cada día para ir al mercado, elegir las mejores frutas y convertirlas en pequeñas obras de arte heladas.</p>
+      <div class="sobre-valores">
+        <div class="valor-item"><div class="valor-icon">🍓</div>Ingredientes frescos</div>
+        <div class="valor-item"><div class="valor-icon">🤝</div>Producción artesanal</div>
+        <div class="valor-item"><div class="valor-icon">♻️</div>Packaging eco</div>
+        <div class="valor-item"><div class="valor-icon">💛</div>Hecho con amor</div>
+      </div>
+      <a href="#contacto" class="btn-primary" style="margin-top:1rem">Escribinos</a>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" style="background:#fff"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="var(--crema)" d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z"/></svg></div>
+
+<!-- MÁS VENDIDOS -->
+<section id="mas-vendidos" style="background:var(--crema);padding:6rem 5%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header reveal">
+      <span class="section-tag tag-celeste">⭐ Los favoritos</span>
+      <h2>Más vendidos</h2>
+      <p>Los sabores que nuestros clientes piden una y otra vez.</p>
+    </div>
+    <div class="productos-grid">
+      <div class="producto-card reveal reveal-delay-1">
+        <div class="producto-card-img-wrap">
+          <span class="producto-badge badge-promo">Promo</span>
+          <img class="producto-card-img" src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=600&auto=format&fit=crop" alt="Frutilla & Leche Condensada"/>
+        </div>
+        <div class="producto-card-body">
+          <h3>Frutilla & Leche Condensada</h3>
+          <p>Cremosa y frutal, un clásico que nunca falla</p>
+          <span class="producto-price">$5.900 <span class="producto-price-old">$6.500</span></span>
+        </div>
+      </div>
+      <div class="producto-card reveal reveal-delay-2">
+        <div class="producto-card-img-wrap">
+          <span class="producto-badge">Nuevo</span>
+          <img class="producto-card-img" src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=600&auto=format&fit=crop" alt="Pistacho Dubai"/>
+        </div>
+        <div class="producto-card-body">
+          <h3>Pistacho Dubai</h3>
+          <p>La tendencia viral llegó a Guapaletas</p>
+          <span class="producto-price">$8.000</span>
+        </div>
+      </div>
+      <div class="producto-card reveal reveal-delay-3">
+        <div class="producto-card-img-wrap">
+          <img class="producto-card-img" src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=600&auto=format&fit=crop" alt="Chocolate & Dulce de Leche"/>
+        </div>
+        <div class="producto-card-body">
+          <h3>Chocolate & Dulce de Leche</h3>
+          <p>La combinación más argentina del universo</p>
+          <span class="producto-price">$5.900</span>
+        </div>
+      </div>
+      <div class="producto-card reveal reveal-delay-4">
+        <div class="producto-card-img-wrap">
+          <span class="producto-badge badge-nuevo">Favorito</span>
+          <img class="producto-card-img" src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=600&auto=format&fit=crop" alt="Multifruta"/>
+        </div>
+        <div class="producto-card-body">
+          <h3>Multifruta</h3>
+          <p>Frutas frescas de temporada en cada paleta</p>
+          <span class="producto-price">$5.900</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROMO OLIVA -->
+    <div class="promo-destacada reveal" style="margin-top:3rem">
+      <div class="promo-text">
+        <span class="section-tag" style="background:rgba(255,255,255,.15);color:#fff;margin-bottom:1rem;display:inline-block">🎉 Oferta especial</span>
+        <h2>4 paletas XS por el precio de 3</h2>
+        <p>Armá tu combo entre todos los sabores Guapa XS Clásica y Especial. Válido en el local.</p>
+        <a href="#contacto" class="btn-blanco">Consultar disponibilidad</a>
+      </div>
+      <div class="promo-visual">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=700&auto=format&fit=crop" alt="Combo de paletas"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+<div class="porque-section">
+  <div class="section-header reveal" style="max-width:1200px;margin:0 auto 3rem">
+    <span class="section-tag tag-lima">🌱 Nuestra promesa</span>
+    <h2>¿Por qué Guapaletas?</h2>
+    <p>Cada paleta es una pequeña obra de arte hecha con ingredientes que podés pronunciar.</p>
+  </div>
+  <div class="porque-grid">
+    <div class="porque-card reveal reveal-delay-1"><div class="porque-icon ic-celeste">🍓</div><h3>Frutas frescas</h3><p>Seleccionadas en el mercado central cada semana.</p></div>
+    <div class="porque-card reveal reveal-delay-2"><div class="porque-icon ic-lima">🌿</div><h3>Sin artificiales</h3><p>Cero conservantes, cero colorantes. Solo lo natural.</p></div>
+    <div class="porque-card reveal reveal-delay-3"><div class="porque-icon ic-rosa">🤝</div><h3>Producción artesanal</h3><p>Pequeños lotes con atención al detalle y cariño.</p></div>
+    <div class="porque-card reveal reveal-delay-4"><div class="porque-icon ic-oliva">♻️</div><h3>Packaging eco</h3><p>Palitos FSC y envoltorios compostables. Sin culpa.</p></div>
+  </div>
+</div>
+
+<!-- CATÁLOGO -->
+<section id="catalogo" style="padding:6rem 5%;background:var(--crema)">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header reveal">
+      <span class="section-tag tag-celeste">🍦 Todos los sabores</span>
+      <h2>Catálogo completo</h2>
+      <p>Guapa XL ($5.900) y Guapa XS ($4.500) — más de 30 sabores para elegir.</p>
+    </div>
+    <div class="catalogo-tabs reveal">
+      <button class="tab-btn active" data-filter="todos">Todos</button>
+      <button class="tab-btn" data-filter="xl">Guapa XL — $5.900</button>
+      <button class="tab-btn" data-filter="xs-especial">XS Especial — $4.500</button>
+      <button class="tab-btn" data-filter="xs-clasica">XS Clásica — $4.500</button>
+    </div>
+    <div class="catalogo-grid" id="catalogoGrid">
+      <div class="item-card reveal" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=400&auto=format&fit=crop" alt="Multifruta"/><h3>Multifruta</h3><p class="item-desc">Mezcla vibrante de frutas de temporada</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=400&auto=format&fit=crop" alt="Frutilla & Leche Condensada"/><h3>Frutilla & L. Condensada</h3><p class="item-desc">Clásico cremoso irresistible</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=300&h=400&auto=format&fit=crop" alt="Frutos Rojos"/><h3>Frutos Rojos & L. Condensada</h3><p class="item-desc">Intenso y cremoso a la vez</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=300&h=400&auto=format&fit=crop" alt="Banana Split"/><h3>Banana Split</h3><p class="item-desc">Banana, frutilla y chocolate</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-4" data-cat="xl"><span class="item-size-tag size-xl">XL ✨</span><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=300&h=400&auto=format&fit=crop" alt="Pistacho Dubai"/><h3>Pistacho Dubai</h3><p class="item-desc">La sensación viral. Edición limitada.</p><div class="item-price">$8.000</div></div>
+      <div class="item-card reveal" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=300&h=400&auto=format&fit=crop" alt="Tramontana"/><h3>Tramontana</h3><p class="item-desc">Menta y chocolate negro intenso</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300&h=400&auto=format&fit=crop" alt="Cookies & Cream"/><h3>Cookies & Cream</h3><p class="item-desc">Crema con trocitos de galletita</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=400&auto=format&fit=crop" alt="Chocolate & DDL"/><h3>Chocolate & Dulce de Leche</h3><p class="item-desc">El dúo más argentino del mundo</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1633933358116-a27b902fad35?w=300&h=400&auto=format&fit=crop" alt="Chocolate & Almendras"/><h3>Chocolate & Almendras</h3><p class="item-desc">Amargo con almendras tostadas</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-4" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=400&auto=format&fit=crop&sat=-30" alt="Frutilla a la Reina"/><h3>Frutilla a la Reina</h3><p class="item-desc">Paleta entera de frutilla pura</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=400&auto=format&fit=crop&hue-rotate=40" alt="Super DDL"/><h3>Super Dulce de Leche</h3><p class="item-desc">Para los amantes del dulce de leche</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=300&h=400&auto=format&fit=crop&hue-rotate=120" alt="Limonada Menta"/><h3>Limonada, Menta & Jengibre</h3><p class="item-desc">Refrescante con toque picante</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=300&h=400&auto=format&fit=crop&sat=50" alt="Chocolate Blanco"/><h3>Chocolate Blanco & Frutos Rojos</h3><p class="item-desc">Dulzura blanca con acidez frutal</p><div class="item-price">$5.900</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xl"><span class="item-size-tag size-xl">XL</span><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=300&h=400&auto=format&fit=crop&contrast=1.2" alt="Chocolate Baileys"/><h3>Chocolate & Baileys</h3><p class="item-desc">Para los que se lo merecen 😉</p><div class="item-price">$5.900</div></div>
+      <!-- XS Especial -->
+      <div class="item-card reveal" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300&h=400&auto=format&fit=crop" alt="Cookies Cream"/><h3>Cookies & Cream</h3><p class="item-desc">Crema americana con oreo</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=400&auto=format&fit=crop" alt="Mandarina Naranja"/><h3>Mandarina & Naranja</h3><p class="item-desc">Cítrico natural y refrescante</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=400&auto=format&fit=crop" alt="Vauquita"/><h3>Dulce de Leche Vauquita</h3><p class="item-desc">Cremoso con el toque Vauquita</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=400&auto=format&fit=crop" alt="Frutilla Sin Azucar"/><h3>Frutilla Sin Azúcar</h3><p class="item-desc">Para cuidarse sin privarse</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-4" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1633933358116-a27b902fad35?w=300&h=400&auto=format&fit=crop" alt="Chocolate Sin Azucar"/><h3>Chocolate Sin Azúcar</h3><p class="item-desc">Intensidad de cacao sin culpa</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=300&h=400&auto=format&fit=crop" alt="Volcan"/><h3>Volcán Guapaletas</h3><p class="item-desc">Chocolate fondant por dentro 🌋</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=300&h=400&auto=format&fit=crop" alt="Mantecol"/><h3>Mantecol</h3><p class="item-desc">Cremoso con esencia de maní y miel</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=300&h=400&auto=format&fit=crop" alt="Coco DDL"/><h3>Coco & Dulce de Leche</h3><p class="item-desc">Tropical con sabor a casa</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=300&h=400&auto=format&fit=crop&hue-rotate=200" alt="Bombon Americano"/><h3>Bombón Americano</h3><p class="item-desc">Chocolate y crema americana</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-4" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=300&h=400&auto=format&fit=crop&hue-rotate=60" alt="DDL Granizado"/><h3>Dulce de Leche Granizado</h3><p class="item-desc">Con chips de chocolate negro</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal" data-cat="xs-especial"><span class="item-size-tag size-xs">XS Especial</span><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=300&h=400&auto=format&fit=crop&hue-rotate=90" alt="After 8"/><h3>After 8</h3><p class="item-desc">Menta con chocolate oscuro intenso</p><div class="item-price">$4.500</div></div>
+      <!-- XS Clásica -->
+      <div class="item-card reveal" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1488900128323-21503983a07e?w=300&h=400&auto=format&fit=crop&hue-rotate=30" alt="Americana"/><h3>Americana</h3><p class="item-desc">Suave crema vainilla rebozada</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-1" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1633933358116-a27b902fad35?w=300&h=400&auto=format&fit=crop&hue-rotate=50" alt="Chocolate"/><h3>Chocolate</h3><p class="item-desc">Puro cacao, simple y perfecto</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-2" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=300&h=400&auto=format&fit=crop&hue-rotate=180" alt="Anana"/><h3>Ananá</h3><p class="item-desc">Tropical y refrescante</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-3" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=300&h=400&auto=format&fit=crop&hue-rotate=160" alt="Vainilla"/><h3>Vainilla</h3><p class="item-desc">El clásico de todos los tiempos</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal reveal-delay-4" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1560008581-09826d1de69e?w=300&h=400&auto=format&fit=crop&hue-rotate=250" alt="Limon"/><h3>Limón</h3><p class="item-desc">Cítrico natural, suave acidez</p><div class="item-price">$4.500</div></div>
+      <div class="item-card reveal" data-cat="xs-clasica"><span class="item-size-tag size-xs">XS Clásica</span><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=300&h=400&auto=format&fit=crop&hue-rotate=300" alt="Frutilla"/><h3>Frutilla</h3><p class="item-desc">Pura frutilla de temporada</p><div class="item-price">$4.500</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-sep" style="background:var(--crema)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="#fff" d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z"/></svg></div>
+
+<!-- GALERÍA CARRUSEL -->
+<section id="galeria" style="background:#fff;padding:6rem 5%">
+  <div style="max-width:1200px;margin:0 auto">
+    <div class="section-header reveal">
+      <span class="section-tag tag-rosa">📍 El local</span>
+      <h2>Vení a visitarnos</h2>
+      <p>Un espacio colorido, lleno de sabor y buena vibra. ¡Te esperamos!</p>
+    </div>
+    <div class="carousel-wrapper reveal">
+      <div class="carousel-progress" id="carouselProgress"></div>
+      <div class="carousel-slide active" data-index="0">
+        <img src="https://images.unsplash.com/photo-1594007654729-407eedc4be65?w=1200&auto=format&fit=crop" alt="El local"/>
+        <div class="carousel-caption"><h3>El local 🍦</h3><p>Nuestro espacio en Palermo, Buenos Aires</p></div>
+      </div>
+      <div class="carousel-slide" data-index="1">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=1200&auto=format&fit=crop" alt="Paletas variadas"/>
+        <div class="carousel-caption"><h3>Surtido del día</h3><p>Más de 30 sabores preparados cada mañana</p></div>
+      </div>
+      <div class="carousel-slide" data-index="2">
+        <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1200&auto=format&fit=crop" alt="Interior"/>
+        <div class="carousel-caption"><h3>Interior 🌿</h3><p>Un espacio pensado para disfrutar</p></div>
+      </div>
+      <div class="carousel-slide" data-index="3">
+        <img src="https://images.unsplash.com/photo-1497034825429-c343d7c6a68f?w=1200&auto=format&fit=crop" alt="Paletas de fruta"/>
+        <div class="carousel-caption"><h3>Paletas frescas ❄️</h3><p>Ingredientes naturales, sabores únicos</p></div>
+      </div>
+      <div class="carousel-slide" data-index="4">
+        <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=1200&auto=format&fit=crop" alt="Frutilla"/>
+        <div class="carousel-caption"><h3>Frutilla fresca 🍓</h3><p>De temporada, seleccionada a diario</p></div>
+      </div>
+      <div class="carousel-slide" data-index="5">
+        <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=1200&auto=format&fit=crop" alt="Chocolate"/>
+        <div class="carousel-caption"><h3>Sabores de chocolate</h3><p>Para los que no se conforman con poco</p></div>
+      </div>
+      <button class="carousel-btn carousel-prev" id="carouselPrev">&#8592;</button>
+      <button class="carousel-btn carousel-next" id="carouselNext">&#8594;</button>
+    </div>
+    <div class="carousel-dots" id="carouselDots"></div>
+  </div>
+</section>
+
+<!-- POR QUÉ ELEGIRNOS -->
+<div class="porque-section">
+  <div class="section-header reveal" style="max-width:1200px;margin:0 auto 3rem">
+    <span class="section-tag tag-lima">🌱 Nuestra promesa</span>
+    <h2>¿Por qué Guapaletas?</h2>
+    <p>Cada paleta es una pequeña obra de arte hecha con ingredientes que podés pronunciar.</p>
+  </div>
+  <div class="porque-grid">
+    <div class="porque-card reveal reveal-delay-1"><div class="porque-icon ic-celeste">🍓</div><h3>Frutas frescas</h3><p>Seleccionadas en el mercado central cada semana.</p></div>
+    <div class="porque-card reveal reveal-delay-2"><div class="porque-icon ic-lima">🌿</div><h3>Sin artificiales</h3><p>Cero conservantes, cero colorantes. Solo lo natural.</p></div>
+    <div class="porque-card reveal reveal-delay-3"><div class="porque-icon ic-rosa">🤝</div><h3>Producción artesanal</h3><p>Pequeños lotes con atención al detalle y cariño.</p></div>
+    <div class="porque-card reveal reveal-delay-4"><div class="porque-icon ic-oliva">♻️</div><h3>Packaging eco</h3><p>Palitos FSC y envoltorios compostables. Sin culpa.</p></div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS -->
+<div class="testimonios-section">
+  <div class="section-header reveal" style="max-width:1200px;margin:0 auto 3rem">
+    <span class="section-tag tag-oliva">💬 Clientes felices</span>
+    <h2>Lo que dicen de nosotros</h2>
+    <p>Más de 10.000 personas ya eligieron Guapaletas.</p>
+  </div>
+  <div class="testimonios-grid" style="max-width:1200px;margin:0 auto">
+    <div class="testimonio-card reveal reveal-delay-1"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"La paleta de pistacho Dubai es una locura. Me la recomendó una amiga y ahora voy todos los fines de semana."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=47" alt="Valentina"/><div class="testimonio-author-info"><strong>Valentina R.</strong><span>Palermo, Buenos Aires</span></div></div></div>
+    <div class="testimonio-card reveal reveal-delay-2"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"Los sabores sin azúcar están buenísimos, no extrañás el azúcar para nada. Ideal para ir con los chicos."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=12" alt="Marcos"/><div class="testimonio-author-info"><strong>Marcos L.</strong><span>Belgrano, Buenos Aires</span></div></div></div>
+    <div class="testimonio-card reveal reveal-delay-3"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"Fui por la promo 4x3 y salí con 8 paletas. No me arrepiento. Chocolate & Baileys, un crimen de sabor."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=32" alt="Lucía"/><div class="testimonio-author-info"><strong>Lucía M.</strong><span>San Telmo, Buenos Aires</span></div></div></div>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="contacto-inner">
+    <div class="contacto-info reveal">
+      <span class="section-tag tag-celeste">✉️ Escribinos</span>
+      <h2>Hablemos</h2>
+      <p>¿Querés hacer un pedido especial, organizar un evento o simplemente saber más? Completá el formulario y te respondemos en el día.</p>
+      <div class="info-items">
+        <div class="info-item"><div class="info-item-icon">📍</div><div class="info-item-text"><strong>Dirección</strong><span>Av. Santa Fe 2450, Palermo, Buenos Aires</span></div></div>
+        <div class="info-item"><div class="info-item-icon">🕐</div><div class="info-item-text"><strong>Horarios</strong><span>Lun–Vie 12:00–21:00 · Sáb–Dom 11:00–22:00</span></div></div>
+        <div class="info-item"><div class="info-item-icon">📱</div><div class="info-item-text"><strong>WhatsApp</strong><a href="https://wa.me/5492966231199" target="_blank" rel="noopener">+54 9 2966 231199</a></div></div>
+        <div class="info-item"><div class="info-item-icon">📸</div><div class="info-item-text"><strong>Instagram</strong><a href="#" target="_blank">@guapaletas</a></div></div>
+      </div>
+      <a class="btn-whatsapp" href="https://wa.me/5492966231199" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribinos por WhatsApp
+      </a>
+    </div>
+
+    <form class="contacto-form reveal reveal-delay-2" id="contactoForm" action="respuestas.html" method="GET">
+      <div class="form-row">
+        <div class="form-group"><label for="nombre">Nombre *</label><input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required/></div>
+        <div class="form-group"><label for="apellido">Apellido</label><input type="text" id="apellido" name="apellido" placeholder="Tu apellido"/></div>
+      </div>
+      <div class="form-group"><label for="email">Email *</label><input type="email" id="email" name="email" placeholder="tucorreo@email.com" required/></div>
+      <div class="form-group"><label for="tel">Teléfono (opcional)</label><input type="tel" id="tel" name="telefono" placeholder="+54 9 11..."/></div>
+      <div class="form-group">
+        <label for="motivo">Motivo de consulta *</label>
+        <select id="motivo" name="motivo" required>
+          <option value="">Seleccioná un motivo…</option>
+          <option value="pedido">Pedido especial / evento</option>
+          <option value="sabores">Consulta sobre sabores</option>
+          <option value="franquicia">Franquicia / locales</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group"><label for="mensaje">Mensaje *</label><textarea id="mensaje" name="mensaje" placeholder="Contanos qué necesitás…" required></textarea></div>
+      <button type="submit" class="form-submit">Enviar mensaje 🍦</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-about">
+      <div class="footer-logo">
+        <svg width="567" height="405" viewBox="0 0 567 405" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M120.447 236.845C122.227 237.346 123.493 241.513 122.654 242.72C122.301 243.221 117.224 243.074 116.708 245.194C117.695 254.854 111.94 292.151 116.635 298.1C118.033 299.867 123.111 301.074 124.126 300.161C124.626 299.719 121.58 291.223 121.344 288.97C120.344 278.987 126.79 251.526 134.369 244.9C139.712 240.232 144.451 243.309 148.218 242.72C149.602 242.5 149.293 239.628 151.589 238.627C157.152 236.183 169.617 237.346 175.387 239.319C187.028 243.295 174.503 245.445 173.356 247.108C171.486 249.818 172.178 297.732 174.916 301.634C177.653 305.536 179.655 299.101 182.995 300.809C191.06 304.917 180.802 317.728 173.429 317.728C169.087 317.728 164.79 312.117 161.67 312.014C158.815 311.926 155.577 315.372 152.501 316.034C137.548 319.259 131.867 309.187 128.1 309.276C125.863 309.32 122.522 311.941 118.931 312.029C115.34 312.117 112.293 309.968 109.055 310.733C106.789 311.263 103.875 314.738 100.873 315.916C93.5876 318.788 86.3319 318.508 79.4589 314.665C76.4419 314.444 70.5108 302.532 68.2296 304.578C67.5526 305.182 65.1684 315.077 65.2125 317.021C65.3597 322.911 69.0685 331.068 69.6572 337.724C71.0406 353.302 71.9236 383.959 61.5921 395.871C34.3356 427.293 10.4346 369.161 26.7414 347.751L41.709 322.248C22.0613 326.533 2.28123 316.446 0.456278 295.052C-1.17735 275.983 1.36875 259.094 11.6709 242.853C22.3704 225.993 24.6957 233.032 39.8693 235.034C44.4905 235.653 48.9352 231.971 54.9104 236.168C63.7261 242.367 55.661 268.827 57.8539 278.869L60.8415 295.729C61.3566 291.4 65.9043 288.764 66.6843 284.627C67.8028 278.648 67.6115 254.382 66.8609 247.83C66.4341 244.105 60.7532 244.782 60.8709 240.541C61.651 237.228 81.0631 235.167 83.9771 236.418C92.2483 239.996 83.256 242.249 82.9028 243.751C80.7393 253.116 80.3125 282.227 81.5929 291.93C83.7564 308.157 94.4559 306.507 96.1925 290.59C97.4729 278.855 98.1058 261.141 97.7231 249.288C97.576 244.87 96.222 241.145 96.1778 236.845C102.698 238.009 114.825 235.255 120.461 236.845H120.447ZM41.5029 251.791C31.0831 244.208 20.5749 264.159 18.7941 272.081C16.5423 282.109 15.4091 310.056 31.451 306.949C51.393 303.091 39.6633 265.234 41.5029 251.791ZM155.032 297.952C156.916 289.221 155.032 265.853 155.032 255.251C155.032 255.03 153.399 251.511 152.692 251.511C136.386 253.793 137.637 298.586 146.173 303.96C149.145 305.83 154.473 300.529 155.032 297.952ZM53.4828 331.083C50.039 330.347 51.1133 331.51 50.1861 332.967C40.5463 348.075 31.9955 380.719 52.6881 390.011C57.3829 384.224 53.5859 377.671 53.424 371.62C53.0707 358.132 53.8213 344.556 53.4828 331.068V331.083Z" fill="#5BC6E4"/>
+          <path d="M436.016 175.149C437.075 180.553 431.144 191.331 433.882 195.689C436.619 200.048 451.027 187.385 451.027 202.242C451.027 218.571 434.765 205.687 433.205 214.022C434.161 234.297 431.88 255.707 433.205 275.85C433.72 283.566 434.647 303.312 445.611 301.677C454.78 300.308 447.289 289.205 446.597 283.08C445.391 272.257 451.866 240.982 462.654 236.153C466.893 234.253 471.367 236.315 474.855 235.416C476.356 235.034 476.253 232.427 477.327 231.735C480.609 229.6 506.497 231.338 508.189 233.988C511.207 238.7 504.128 238.774 502.317 240.482C498.932 243.692 502.567 247.432 502.42 250.907C502.288 254.102 500.934 256.944 500.89 259.683C500.801 264.63 501.125 293.181 503.745 295.08C510.691 300.146 506.526 290.089 506.703 286.231C507.115 277.337 513.223 270.962 522.274 272.081C534.637 273.612 519.581 297.495 533.974 298.791C549.413 300.19 548.441 274.113 535.829 268.871C530.884 266.809 526.13 268.341 520.743 264.821C513.193 259.889 512.899 248.801 514.224 240.614C515.725 231.308 532.473 223.99 541.407 225.036C566.249 227.936 566.043 261.965 544.615 255.677C539.361 254.131 538.978 247.549 537.874 243.25C537.492 241.777 538.493 238.582 535.49 239.804C531.031 241.615 529.015 249.287 530.236 253.616C530.575 254.853 548.559 260.89 553.475 264.483C582.88 286.025 560.142 328.343 525.335 313.251C521.832 311.734 514.135 304.651 513.399 304.666C512.104 304.666 507.277 314.002 496.842 309.363C494.37 308.274 492.677 304.681 489.896 304.607C483.935 304.46 479.932 313.074 466.922 309.835C463.817 309.069 460.476 305.52 457.783 306.212C455.928 306.683 450.321 312.456 446.023 313.737C429.864 318.551 413.984 307.214 412.527 290.648C410.275 265.219 413.645 235.946 414.057 210.326L399.34 211.813C400.606 208.191 397.751 201.992 398.207 199.459C399.355 193.054 413.057 196.617 414.057 195.616C414.72 194.939 412.63 179.978 416.971 177.181C419.194 175.738 434.073 172.395 436.001 175.149H436.016ZM475.87 245.679C457.93 247.211 458.592 283.109 465.862 294.727C470.086 301.471 476.371 294.521 477.268 289.043C478.063 284.199 477.607 247.181 475.87 245.694V245.679Z" fill="#5BC6E4"/>
+          <path d="M366.741 303.371C363.224 301.339 357.528 309.776 352.686 311.632C330.64 320.083 323.296 301 321.382 283.213C320.838 278.221 322.486 269.784 321.132 265.794C320.176 263.011 315.392 263.247 315.378 259.683C315.363 257.121 319.204 255.708 319.867 252.291C320.985 246.549 319.322 238.067 319.911 231.721C320.602 224.167 326.224 180.377 331.317 177.976C344.062 171.954 350.905 188.019 352.112 198.002C355.041 222.106 347.447 229.409 341.207 248.61C338.116 258.093 339.985 278.84 342.34 288.764C345.901 303.769 351.111 299.292 355.306 287.763C361.678 270.226 357.234 239.555 377.308 231.736C404.594 221.105 414.764 256.061 394.822 272.818C386.919 279.473 372.275 280.975 377.176 292.21C385.3 310.792 396.779 291.783 404.8 291.65C414.514 291.488 407.273 305.241 401.356 308.819C389.98 315.696 378.868 314.046 368.566 306.64C367.521 305.889 367.183 303.651 366.756 303.415L366.741 303.371ZM374.335 267.752C376.572 270.314 398.884 246.078 386.58 242.882C379.751 241.115 373.85 262.304 374.335 267.752Z" fill="#5BC6E4"/>
+          <path d="M209.707 312.147C207.029 335.412 201.569 361.062 215.388 381.853C214.991 383.679 202.305 386.624 199.773 386.874C176.932 389.127 189.25 380.086 190.413 367.217C191.679 353.361 188.647 338.931 188.75 325.929C188.853 310.822 194.048 259.021 188.559 248.213C186.91 244.988 182.524 245.371 183.01 241.263C205.307 239.201 234.609 227.054 244.072 255.988C246.206 262.496 247.766 279.032 247.884 286.158C248.223 306.508 227 314.812 209.707 312.132V312.147ZM214.652 247.153C209.31 248.964 207.161 289.707 213.122 295.773C215.653 298.35 222.217 297.835 224.351 295.14C226.294 292.667 226.308 268.621 225.602 264.16C224.793 259.065 219.053 254.751 219.038 248.64C218.243 247.02 216.139 246.652 214.652 247.153Z" fill="#5BC6E4"/>
+          <path d="M313.994 235.387C317.497 239.628 307.592 241.454 306.827 243.662C305.488 261.744 305.797 279.237 308.122 297.216C327.269 290.251 321.633 313.472 305.9 312.058C300.749 311.602 297.305 306.139 294.391 306.316C287.518 306.757 285.281 314.311 271.594 310.924C244.602 304.239 249.282 261.921 261.851 244.296C269.474 233.605 271.608 238.847 280.601 236.801C281.646 236.565 281.484 234.327 282.735 234.003C287.753 232.693 311.625 232.501 314.009 235.387H313.994ZM286.017 247.137C275.715 246.578 272.3 261.95 271.461 270.122C270.873 275.836 272.55 298.188 279.409 298.791C286.767 299.454 287.018 287.365 287.474 281.725C288.401 270.226 287.209 258.505 286.017 247.137Z" fill="#5BC6E4"/>
+        </svg>
+      </div>
+      <p>Paletas artesanales con ingredientes naturales, elaboradas con amor y mucho sabor. El antídoto perfecto para cualquier día.</p>
+      <div class="footer-social">
+        <a class="social-btn" href="#" aria-label="Instagram">📸</a>
+        <a class="social-btn" href="https://wa.me/5492966231199" target="_blank" aria-label="WhatsApp">💬</a>
+        <a class="social-btn" href="#" aria-label="TikTok">🎵</a>
+        <a class="social-btn" href="#" aria-label="Facebook">👤</a>
+      </div>
+    </div>
+    <div class="footer-col"><h4>Navegación</h4><ul><li><a href="#home">Inicio</a></li><li><a href="#sobre-nosotros">Nosotros</a></li><li><a href="#mas-vendidos">Más vendidos</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#galeria">El local</a></li><li><a href="#contacto">Contacto</a></li></ul></div>
+    <div class="footer-col"><h4>Sabores top</h4><ul><li><a href="#catalogo">Pistacho Dubai</a></li><li><a href="#catalogo">Frutilla & L. Condensada</a></li><li><a href="#catalogo">Choco & Dulce de Leche</a></li><li><a href="#catalogo">Cookies & Cream</a></li></ul></div>
+    <div class="footer-col"><h4>El local</h4><ul><li><a href="#">Av. Santa Fe 2450, Palermo</a></li><li><a href="#">Lun–Vie: 12–21h</a></li><li><a href="#">Sáb–Dom: 11–22h</a></li><li><a href="https://wa.me/5492966231199" target="_blank">+54 9 2966 231199</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Guapaletas. Todos los derechos reservados.</p>
+    <p>Hecho con 🍓 en Buenos Aires, Argentina</p>
+  </div>
+</footer>
+
+<script>
+// Navbar scroll
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+// Hamburger
+document.getElementById('hamburger').addEventListener('click', () => {
+  document.getElementById('navLinks').classList.toggle('open');
+});
+document.querySelectorAll('.navbar-links a').forEach(a => a.addEventListener('click', () => document.getElementById('navLinks').classList.remove('open')));
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }});
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Filtros catálogo
+const tabs = document.querySelectorAll('.tab-btn');
+const items = document.querySelectorAll('#catalogoGrid .item-card');
+tabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    tabs.forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    const f = tab.dataset.filter;
+    items.forEach(item => {
+      const show = f === 'todos' || item.dataset.cat === f;
+      item.style.display = show ? '' : 'none';
+      if (show) { item.style.animation = 'none'; item.offsetHeight; item.style.animation = 'fadeUp 0.4s ease forwards'; }
+    });
+  });
+});
+
+// Carrusel
+const slides = document.querySelectorAll('.carousel-slide');
+const dotsContainer = document.getElementById('carouselDots');
+const progressBar = document.getElementById('carouselProgress');
+let current = 0;
+let autoplayTimer, progressTimer;
+const INTERVAL = 5000;
+
+// Crear dots
+slides.forEach((_, i) => {
+  const d = document.createElement('button');
+  d.className = 'dot' + (i === 0 ? ' active' : '');
+  d.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(d);
+});
+
+function goTo(idx) {
+  slides[current].classList.remove('active');
+  dotsContainer.children[current].classList.remove('active');
+  current = (idx + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dotsContainer.children[current].classList.add('active');
+  resetProgress();
+}
+
+function resetProgress() {
+  progressBar.style.transition = 'none';
+  progressBar.style.width = '0%';
+  clearTimeout(progressTimer);
+  setTimeout(() => {
+    progressBar.style.transition = `width ${INTERVAL}ms linear`;
+    progressBar.style.width = '100%';
+  }, 20);
+}
+
+function startAutoplay() {
+  clearInterval(autoplayTimer);
+  autoplayTimer = setInterval(() => goTo(current + 1), INTERVAL);
+  resetProgress();
+}
+
+document.getElementById('carouselPrev').addEventListener('click', () => { clearInterval(autoplayTimer); goTo(current - 1); startAutoplay(); });
+document.getElementById('carouselNext').addEventListener('click', () => { clearInterval(autoplayTimer); goTo(current + 1); startAutoplay(); });
+
+startAutoplay();
+</script>
+</body>
+</html>
