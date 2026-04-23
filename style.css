@@ -566,24 +566,55 @@ p{font-size:1rem;line-height:1.7;font-weight:400}
 .cat-size.xs      { background: rgba(242,187,191,.4); color: #b05060; }
 .cat-size.guapote { background: rgba(200,200,32,.18); color: var(--oliva); }
 
-/* ---- CARRUSEL ---- */
-#galeria{background:var(--blanco);padding:6rem 5%}
-.carousel-wrapper{position:relative;max-width:1200px;margin:0 auto;border-radius:var(--radio-lg);overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.12);height:520px}
-.carousel-slide{position:absolute;inset:0;opacity:0;transition:opacity .9s cubic-bezier(.4,0,.2,1),transform .9s cubic-bezier(.4,0,.2,1);transform:scale(1.03);z-index:1}
-.carousel-slide.active{opacity:1;transform:scale(1);z-index:2}
-.carousel-slide img{width:100%;height:100%;object-fit:cover;display:block}
-.carousel-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(58,53,48,.75) 0%,transparent 100%);padding:2.5rem 2rem 1.8rem;color:#fff;transform:translateY(8px);transition:transform .5s ease .2s}
-.carousel-slide.active .carousel-caption{transform:translateY(0)}
-.carousel-caption h3{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;margin-bottom:.3rem}
-.carousel-caption p{font-size:.85rem;color:rgba(255,255,255,.8)}
-.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.9);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--texto);box-shadow:0 4px 16px rgba(0,0,0,.15);transition:background .2s,transform .2s}
-.carousel-btn:hover{background:var(--celeste);color:#fff;transform:translateY(-50%) scale(1.1)}
-.carousel-prev{left:1.2rem}
-.carousel-next{right:1.2rem}
-.carousel-dots{display:flex;justify-content:center;gap:.5rem;margin-top:1.4rem}
-.dot{width:8px;height:8px;border-radius:50%;background:var(--celeste-claro);border:none;cursor:pointer;transition:all .3s;padding:0}
-.dot.active{background:var(--celeste);transform:scale(1.4)}
-.carousel-progress{position:absolute;bottom:0;left:0;height:3px;background:var(--celeste);z-index:10;border-radius:0 2px 2px 0;transition:width .1s linear}
+/* ---- FOODTRUCK / LOCAL ---- */
+.foodtruck-section {
+  background: var(--blanco);
+  padding: 7rem 5%;
+}
+.foodtruck-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.foodtruck-text .section-tag { margin-bottom: 1rem; display: inline-block; }
+.foodtruck-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  margin-bottom: 1.2rem;
+  color: var(--texto);
+}
+.foodtruck-text h2 em { color: var(--celeste); font-style: italic; }
+.foodtruck-text p {
+  color: var(--texto-suave);
+  font-size: .97rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.foodtruck-text p strong { color: var(--texto); font-weight: 700; }
+.foodtruck-map-btn {
+  margin-top: .8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+}
+.foodtruck-img-wrap {
+  border-radius: var(--radio-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.14);
+}
+.foodtruck-img-wrap img {
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  display: block;
+  transition: transform .5s ease;
+}
+.foodtruck-img-wrap:hover img {
+  transform: scale(1.03);
+}
 
 /* ---- POR QUÉ ELEGIRNOS ---- */
 .porque-section{background:linear-gradient(135deg,var(--celeste-claro) 0%,var(--crema) 100%);padding:6rem 5%}
@@ -676,6 +707,8 @@ p{font-size:1rem;line-height:1.7;font-weight:400}
   .sobre-imgs{height:340px}
 }
 @media(max-width:768px){
+  .foodtruck-inner{grid-template-columns:1fr;gap:2.5rem}
+  .foodtruck-img-wrap img{height:300px}
   .showcase-stage{grid-template-columns:1fr;padding:0 5% 2rem}
   .showcase-visual{height:420px}
   .showcase-paleta.active{height:390px}
