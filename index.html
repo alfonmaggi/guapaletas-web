@@ -65,7 +65,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
   </div>
-  <div class="hero-container">
+  <div class="hero-container hero-container-3col">
     <div class="hero-content">
       <span class="hero-badge">✨ Helados artesanales</span>
       <h1 class="hero-title">El sabor que<br><em>te alegra</em><br>el día</h1>
@@ -80,9 +80,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="stat"><span class="stat-num">10k+</span><span class="stat-label">Clientes</span></div>
       </div>
     </div>
+
     <div class="hero-visual">
-      <div class="hero-stripes-col">
-        <img class="hero-paletas-img" src="img/primera-imagen.png" alt="Paletas Guapaletas"/>
+      <div class="hero-circle-bg"></div>
+
+      <!-- Círculo de texto rotativo -->
+      <svg class="hero-text-ring" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <path id="ringPath" d="M 250,250 m -200,0 a 200,200 0 1,1 400,0 a 200,200 0 1,1 -400,0"/>
+        </defs>
+        <text font-family="Montserrat, sans-serif" font-weight="700" font-size="15.5" letter-spacing="3" fill="#3A3530">
+          <textPath href="#ringPath" startOffset="0%">
+            ARTESANAL · SABOR ÚNICO · GUAPALETAS · ARTESANAL · SABOR ÚNICO · GUAPALETAS ·
+          </textPath>
+        </text>
+      </svg>
+
+      <!-- Imagen principal: mano con paleta -->
+      <img class="hero-paletas-img" src="img/guapa-primerimagen.png" alt="Paleta artesanal Guapaletas"/>
+    </div>
+
+    <!-- Columna derecha: copy + slider + badges de beneficios -->
+    <div class="hero-side">
+      <div class="hero-side-copy">
+        <h3>Viví la <em>experiencia</em><br>Guapaletas</h3>
+        <p>Sabores que se disfrutan en cualquier estación, en cualquier lugar.</p>
+      </div>
+
+      <div class="hero-side-slider">
+        <div class="hero-slider-track" id="heroSliderTrack">
+          <img src="img/slider-guapa1.png" alt="Amigas disfrutando paletas Guapaletas"/>
+          <img src="img/slider-guapa2.png" alt="Viví la experiencia Guapaletas"/>
+          <img src="img/slider-guapa3.png" alt="Paleta de pistacho en la nieve"/>
+          <img src="img/slider-guapa4.png" alt="Frutilla a la Reina Guapaletas"/>
+        </div>
+        <div class="hero-slider-dots" id="heroSliderDots"></div>
+      </div>
+
+      <div class="hero-side-badges">
+        <div class="hero-mini-badge"><span>🍓</span> 100% Natural</div>
+        <div class="hero-mini-badge"><span>🌱</span> Sin conservantes</div>
+        <div class="hero-mini-badge"><span>👩‍🍳</span> Artesanal</div>
       </div>
     </div>
   </div>
@@ -119,250 +157,139 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div class="wave-sep" style="background:#fff"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 60" preserveAspectRatio="none"><path fill="var(--crema)" d="M0,0 C480,60 960,60 1440,0 L1440,60 L0,60 Z"/></svg></div>
 
-<!-- DESTACADOS SHOWCASE SLIDER -->
-<section id="mas-vendidos" class="showcase-section">
+<!-- DESTACADOS — MÁS VENDIDOS -->
+<section id="mas-vendidos" class="favoritos-section">
 
-  <!-- fondo de color que cambia con transición -->
-  <div class="showcase-bg" id="showcaseBg"></div>
+  <div class="favoritos-inner">
 
-  <div class="showcase-header">
-    <span class="section-tag tag-celeste">⭐ Los favoritos</span>
-    <h2>Más vendidos</h2>
-  </div>
+    <!-- Columna izquierda: paleta grande activa -->
+    <div class="favoritos-main">
+      <img class="favoritos-main-bg" src="img/favorites-fondo.svg" alt=""/>
+      <img class="favoritos-main-img" id="favMainImg" src="img/frutos-rojos-catalogo.png" alt="Frutos Rojos & Leche Condensada"/>
+    </div>
 
-  <div class="showcase-stage">
+    <!-- Columna derecha: copy + miniaturas + ingredientes -->
+    <div class="favoritos-side">
 
-    <!-- Columna izquierda: texto -->
-    <div class="showcase-info">
-      <div class="showcase-info-inner" id="showcaseInfo">
-        <span class="showcase-tag" id="showcaseTag"></span>
-        <h2 class="showcase-title" id="showcaseTitle"></h2>
-        <p class="showcase-desc" id="showcaseDesc"></p>
-        <div class="showcase-price" id="showcasePrice"></div>
-        <a href="#catalogo" class="btn-primary showcase-cta">Ver catálogo completo</a>
+      <div class="favoritos-copy">
+        <span class="section-tag tag-celeste">⭐ Los favoritos</span>
+        <h2>Los favoritos<br>de <em>todo el mundo</em></h2>
+        <p>Los sabores que más se repiten, los que nunca fallan, los que vas a querer probar primero.</p>
       </div>
-      <!-- dots -->
-      <div class="showcase-dots" id="showcaseDots"></div>
+
+      <!-- miniaturas -->
+      <div class="favoritos-thumbs" id="favThumbs">
+        <button class="fav-thumb active" data-img="img/frutos-rojos-catalogo.png" data-title="Frutos Rojos &amp; Leche Condensada" data-price="$5.900" data-ingredients="Frutos rojos,Leche condensada,Crema americana,Sin conservantes">
+          <img src="img/frutos-rojos-catalogo.png" alt="Frutos Rojos"/>
+        </button>
+        <button class="fav-thumb" data-img="img/pistacho-catalogo.png" data-title="Pistacho Dubai" data-price="$8.000" data-ingredients="Pistacho auténtico,Crema dubai,Sin conservantes,Edición limitada">
+          <img src="img/pistacho-catalogo.png" alt="Pistacho"/>
+        </button>
+        <button class="fav-thumb" data-img="img/banana-catalogo.png" data-title="Banana Split" data-price="$5.900" data-ingredients="Banana natural,Dulce de leche,Crema americana,Sin gluten">
+          <img src="img/banana-catalogo.png" alt="Banana Split"/>
+        </button>
+        <button class="fav-thumb" data-img="img/chocolate-almendras-catalogo.png" data-title="Chocolate &amp; Almendras" data-price="$5.900" data-ingredients="Chocolate intenso,Almendras tostadas,Artesanal,Sin conservantes">
+          <img src="img/chocolate-almendras-catalogo.png" alt="Chocolate y Almendras"/>
+        </button>
+        <button class="fav-thumb" data-img="img/multifruta-catalogo.png" data-title="Multifruta" data-price="$5.900" data-ingredients="Frutilla,Kiwi,Frutas de estación,Sin azúcar agregada">
+          <img src="img/multifruta-catalogo.png" alt="Multifruta"/>
+        </button>
+      </div>
+
+      <!-- info activa: nombre, precio, ingredientes -->
+      <div class="favoritos-info" id="favInfo">
+        <div class="favoritos-info-head">
+          <h3 id="favTitle">Frutos Rojos &amp; Leche Condensada</h3>
+          <span class="favoritos-price" id="favPrice">$5.900</span>
+        </div>
+        <div class="favoritos-ingredients" id="favIngredients">
+          <span class="ing-pill">🍓 Frutos rojos</span>
+          <span class="ing-pill">🥛 Leche condensada</span>
+          <span class="ing-pill">🍦 Crema americana</span>
+          <span class="ing-pill">🌱 Sin conservantes</span>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Columna derecha: paletas -->
-    <div class="showcase-visual" id="showcaseVisual">
-      <!-- paleta actual -->
-      <img class="showcase-paleta active" id="paletaMain" src="" alt=""/>
-      <!-- paleta siguiente (previa, más chica atrás) -->
-      <img class="showcase-paleta next" id="paletaNext" src="" alt=""/>
-    </div>
-
   </div>
-
-  <!-- flechas -->
-  <button class="showcase-arrow prev" id="showcasePrev" aria-label="Anterior">&#8592;</button>
-  <button class="showcase-arrow next" id="showcaseNextBtn" aria-label="Siguiente">&#8594;</button>
-
-  <!-- wave orgánico al pie -->
-  <div class="showcase-wave">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100" preserveAspectRatio="none">
-      <path fill="#ffffff" d="M0,60 C240,100 480,20 720,65 C960,110 1200,30 1440,70 L1440,100 L0,100 Z"/>
-    </svg>
-  </div>
-
 </section>
 
 <script>
+// Hero side slider
 (function(){
-  const paletas = [
-    {
-      tag: 'Promo — $5.900',
-      title: 'Frutilla &amp; Leche Condensada',
-      desc: 'La combinación perfecta entre la acidez de la frutilla fresca y la cremosidad de la leche condensada. Un clásico que nunca falla.',
-      price: '$5.900',
-      img: 'img/frutillacondensada-paleta.png',
-      bg: '#EFB8B9',
-      glow: 'rgba(255,235,235,0.85)',
-      accent: '#EFB8B9',
-      accentDark: '#c9787a'
-    },
-    {
-      tag: 'Nuevo — $8.000',
-      title: 'Pistacho Dubai',
-      desc: 'La tendencia viral que llegó a Guapaletas. Pistacho auténtico con textura única y un sabor que no tiene igual.',
-      price: '$8.000',
-      img: 'img/pistachodubai-paleta.png',
-      bg: '#C4C386',
-      glow: 'rgba(240,240,180,0.85)',
-      accent: '#C4C386',
-      accentDark: '#8f8d3a'
-    },
-    {
-      tag: 'Favorito — $5.900',
-      title: 'Chocolate &amp; Dulce de Leche',
-      desc: 'La combinación más argentina del universo. Chocolate intenso con un corazón cremoso de dulce de leche.',
-      price: '$5.900',
-      img: 'img/chocolatedulce-paleta.png',
-      bg: '#4D311A',
-      glow: 'rgba(140,80,30,0.5)',
-      accent: '#4D311A',
-      accentDark: '#3a2210'
-    },
-    {
-      tag: 'Clásico — $5.900',
-      title: 'Tramontana',
-      desc: 'Menta fresca y chocolate negro intenso en perfecta armonía. Refrescante, sofisticada y con carácter propio.',
-      price: '$5.900',
-      img: 'img/tramontana-paleta.png',
-      bg: '#7D303E',
-      glow: 'rgba(180,60,80,0.45)',
-      accent: '#7D303E',
-      accentDark: '#5c2230'
-    }
-  ];
-
+  const track = document.getElementById('heroSliderTrack');
+  const dotsWrap = document.getElementById('heroSliderDots');
+  const slides = track.querySelectorAll('img');
   let current = 0;
-  let autoTimer;
-  const INTERVAL = 4500;
-  let isAnimating = false;
+  const TOTAL = slides.length;
+  const INTERVAL = 3500;
 
-  const bgEl       = document.getElementById('showcaseBg');
-  const tagEl      = document.getElementById('showcaseTag');
-  const titleEl    = document.getElementById('showcaseTitle');
-  const descEl     = document.getElementById('showcaseDesc');
-  const priceEl    = document.getElementById('showcasePrice');
-  const infoEl     = document.getElementById('showcaseInfo');
-  const ctaEl      = document.querySelector('.showcase-cta');
-  const paletaMain = document.getElementById('paletaMain');  // adelante
-  const paletaBack = document.getElementById('paletaNext');  // detrás
-  const dotsWrap   = document.getElementById('showcaseDots');
-  const prevBtn    = document.getElementById('showcasePrev');
-  const nextBtn    = document.getElementById('showcaseNextBtn');
-
-  // Crear dots
-  paletas.forEach((_, i) => {
+  slides.forEach((_, i) => {
     const d = document.createElement('button');
-    d.className = 'showcase-dot' + (i === 0 ? ' active' : '');
-    d.addEventListener('click', () => go(i));
+    d.className = 'hero-slider-dot' + (i === 0 ? ' active' : '');
+    d.addEventListener('click', () => goTo(i));
     dotsWrap.appendChild(d);
   });
 
-  function applyColors(idx) {
-    const p = paletas[idx];
-    const a = p.accent;
-    const ad = p.accentDark;
+  function goTo(idx) {
+    current = (idx + TOTAL) % TOTAL;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    dotsWrap.querySelectorAll('.hero-slider-dot').forEach((d,i) => d.classList.toggle('active', i === current));
+  }
 
-    tagEl.style.background   = a + '33'; // 20% opacidad
-    tagEl.style.color         = ad;
-    titleEl.style.color       = 'var(--texto)';
-    descEl.style.color        = 'var(--texto-suave)';
-    priceEl.style.color       = ad;
+  setInterval(() => goTo(current + 1), INTERVAL);
+})();
+</script>
 
-    // CTA button
-    ctaEl.style.background    = a;
-    ctaEl.style.color         = idx === 1 ? '#3a3a00' : (idx === 0 ? '#7a2a2c' : '#fff');
-    ctaEl.style.boxShadow     = `0 4px 20px ${a}66`;
+<script>
+// Favoritos / Más vendidos — slider
+(function(){
+  const mainImg = document.getElementById("favMainImg");
+  const thumbs = document.querySelectorAll(".fav-thumb");
+  const titleEl = document.getElementById("favTitle");
+  const priceEl = document.getElementById("favPrice");
+  const ingWrap = document.getElementById("favIngredients");
 
-    // dots
-    dotsWrap.querySelectorAll('.showcase-dot').forEach((d, i) => {
-      d.style.background = i === idx ? ad : a + '55';
-      d.style.transform  = i === idx ? 'scale(1.4)' : 'scale(1)';
+  const emojiMap = {
+    "frutos rojos": "🍓", "leche condensada": "🥛", "crema americana": "🍦", "sin conservantes": "🌱",
+    "pistacho auténtico": "🌰", "crema dubai": "🍯", "edición limitada": "✨",
+    "banana natural": "🍌", "dulce de leche": "🥛", "sin gluten": "🌾",
+    "chocolate intenso": "🍫", "almendras tostadas": "🌰", "artesanal": "👩‍🍳",
+    "frutilla": "🍓", "kiwi": "🥝", "frutas de estación": "🍇", "sin azúcar agregada": "🌿"
+  };
+
+  function setActive(thumb) {
+    thumbs.forEach(t => t.classList.remove("active"));
+    thumb.classList.add("active");
+
+    mainImg.classList.add("switching");
+
+    setTimeout(() => {
+      mainImg.src = thumb.dataset.img;
+      mainImg.classList.remove("switching");
+    }, 220);
+
+    titleEl.innerHTML = thumb.dataset.title;
+    priceEl.textContent = thumb.dataset.price;
+
+    ingWrap.innerHTML = "";
+    thumb.dataset.ingredients.split(",").forEach(ing => {
+      const span = document.createElement("span");
+      span.className = "ing-pill";
+      const emoji = emojiMap[ing.toLowerCase()] || "🍦";
+      span.textContent = emoji + " " + ing;
+      ingWrap.appendChild(span);
     });
   }
 
-  function setBg(p) {
-    // fondo fijo beige
-  }
+  thumbs.forEach(t => t.addEventListener("click", () => setActive(t)));
 
-  function go(idx) {
-    if (isAnimating) return;
-    const next = (idx + paletas.length) % paletas.length;
-    if (next === current) return;
-    isAnimating = true;
-
-    const pNext = paletas[next];
-    const afterNext = (next + 1) % paletas.length;
-
-    // El src de paletaBack YA es pNext.img (fue puesto al final de la transición anterior)
-    // Solo animamos: paletaMain sale, paletaBack avanza al frente
-
-    // 1. Fondo transiciona
-    bgEl.style.transition = 'background 0.65s ease';
-    setBg(pNext);
-
-    // 2. paletaMain sale hacia atrás/costado
-    paletaMain.style.transition = 'transform 0.42s cubic-bezier(0.4,0,0.2,1), opacity 0.42s ease';
-    paletaMain.style.transform  = 'scale(0.55) translateX(-80%)';
-    paletaMain.style.opacity    = '0';
-
-    // 3. paletaBack avanza al frente
-    paletaBack.style.transition = 'transform 0.42s cubic-bezier(0.22,1,0.36,1), opacity 0.42s ease, filter 0.42s ease';
-    paletaBack.style.transform  = 'scale(1) translateX(0)';
-    paletaBack.style.opacity    = '1';
-    paletaBack.style.filter     = 'blur(0px)';
-    paletaBack.style.zIndex     = '4';
-
-    // 4. Texto
-    infoEl.classList.add('fade-out');
-    setTimeout(() => {
-      tagEl.textContent     = pNext.tag;
-      titleEl.innerHTML     = pNext.title;
-      descEl.textContent    = pNext.desc;
-      priceEl.textContent   = pNext.price;
-      applyColors(next);
-      infoEl.classList.remove('fade-out');
-    }, 210);
-
-    // 5. Al terminar: reconfigurar los dos elementos para el estado final
-    setTimeout(() => {      // paletaBack se convierte en el nuevo paletaMain
-      // Swapeamos: quitamos transiciones, reseteamos estados
-      paletaMain.style.transition = 'none';
-      paletaBack.style.transition = 'none';
-
-      // paletaMain ahora tiene el src de la nueva paleta activa
-      paletaMain.src             = pNext.img;
-      paletaMain.style.transform = 'scale(1) translateX(0)';
-      paletaMain.style.opacity   = '1';
-      paletaMain.style.zIndex    = '3';
-
-      // paletaBack ahora es la siguiente en la cola
-      paletaBack.src             = paletas[afterNext].img;
-      paletaBack.style.transform = 'scale(0.58) translateX(68%)';
-      paletaBack.style.opacity   = '0.5';
-      paletaBack.style.filter    = 'blur(2px)';
-      paletaBack.style.zIndex    = '1';
-
-      current = next;
-      isAnimating = false;
-    }, 450);
-  }
-
-  function startAuto() {
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => go((current + 1) % paletas.length), INTERVAL);
-  }
-
-  prevBtn.addEventListener('click', () => { clearInterval(autoTimer); go((current - 1 + paletas.length) % paletas.length); startAuto(); });
-  nextBtn.addEventListener('click', () => { clearInterval(autoTimer); go((current + 1) % paletas.length); startAuto(); });
-
-  // ---- INIT ----
-  const p0 = paletas[0];
-  setBg(p0);
-  tagEl.textContent     = p0.tag;
-  titleEl.innerHTML     = p0.title;
-  descEl.textContent    = p0.desc;
-  priceEl.textContent   = p0.price;
-  applyColors(0);
-
-  // Estado inicial: frutilla adelante, pistacho detrás
-  paletaMain.src             = paletas[0].img;
-  paletaMain.style.transform = 'scale(1) translateX(0)';
-  paletaMain.style.opacity   = '1';
-  paletaMain.style.zIndex    = '3';
-
-  paletaBack.src             = paletas[1].img;
-  paletaBack.style.transform = 'scale(0.58) translateX(68%)';
-  paletaBack.style.opacity   = '0.5';
-  paletaBack.style.filter    = 'blur(2px)';
-  paletaBack.style.zIndex    = '1';
-
-  startAuto();
+  // autoplay
+  let current = 0;
+  setInterval(() => {
+    current = (current + 1) % thumbs.length;
+    setActive(thumbs[current]);
+  }, 4500);
 })();
 </script>
 
@@ -391,47 +318,47 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="catalogo-grid" id="catalogoGrid">
 
       <!-- XL -->
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/multifruta-paleta.png" alt="Multifruta"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Multifruta</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutosrojoscondensada-paleta.png" alt="Frutos Rojos y Leche Condensada"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutos Rojos & L. Condensada</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutillacondensada-paleta.png" alt="Frutilla y Leche Condensada"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla & Leche Condensada</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/bananasplit-paleta.png" alt="Banana Split"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Banana Split</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/pistachodubai-paleta.png" alt="Pistacho Dubai"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Pistacho Dubai</h3><span class="cat-price">$8.000</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/tramontana-paleta.png" alt="Tramontana"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Tramontana</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/cookies-paleta.png" alt="Cookies & Cream"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Cookies & Cream</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolatedulce-paleta.png" alt="Chocolate y Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Dulce de Leche</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolatealmendras-paleta.png" alt="Chocolate y Almendras"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Almendras</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/reina-paleta.png" alt="Frutilla a la Reina"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla a la Reina</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/superdulce-paleta.png" alt="Super Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Super Dulce de Leche</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutilla-paleta.png" alt="Frutilla"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/limonada-paleta.png" alt="Limonada, Menta y Jengibre"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Limonada, Menta & Jengibre</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolateblanco-paleta.png" alt="Chocolate Blanco y Frutos Rojos"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Choco Blanco & Frutos Rojos</h3><span class="cat-price">$5.900</span></div></div>
-      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolatebaileys-paleta.png" alt="Chocolate y Baileys"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Baileys</h3><span class="cat-price">$5.900</span></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/multifruta-catalogo.png" alt="Multifruta"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Multifruta</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutos-rojos-catalogo.png" alt="Frutos Rojos y Leche Condensada"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutos Rojos & L. Condensada</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutillacondensada-paleta.png" alt="Frutilla y Leche Condensada"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla & Leche Condensada</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/banana-catalogo.png" alt="Banana Split"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Banana Split</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/pistacho-catalogo.png" alt="Pistacho Dubai"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Pistacho Dubai</h3><span class="cat-price">$8.000</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/tramontana-paleta.png" alt="Tramontana"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Tramontana</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/cookies-paleta.png" alt="Cookies & Cream"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Cookies & Cream</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolatedulce-paleta.png" alt="Chocolate y Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Dulce de Leche</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolate-almendras-catalogo.png" alt="Chocolate y Almendras"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Almendras</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/reina-paleta.png" alt="Frutilla a la Reina"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla a la Reina</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/superdulce-paleta.png" alt="Super Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Super Dulce de Leche</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/frutilla-paleta.png" alt="Frutilla"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Frutilla</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/limonada-paleta.png" alt="Limonada, Menta y Jengibre"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Limonada, Menta & Jengibre</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolateblanco-paleta.png" alt="Chocolate Blanco y Frutos Rojos"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Choco Blanco & Frutos Rojos</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xl"><div class="cat-card-img-wrap"><img src="img/chocolatebaileys-paleta.png" alt="Chocolate y Baileys"/></div><div class="cat-card-info"><span class="cat-size xl">XL</span><h3>Chocolate & Baileys</h3><span class="cat-price">$5.900</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
 
       <!-- XS -->
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/cookiesxs-paleta.png" alt="Cookies & Cream XS"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Cookies & Cream</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/mandarina-paleta.png" alt="Mandarina y Naranja"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Mandarina & Naranja</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/dulcevaquita-paleta.png" alt="Dulce de Leche Vaquita"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Dulce de Leche Vaquita</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/frutillasinazucar-paleta.png" alt="Frutilla Sin Azúcar"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Frutilla Sin Azúcar</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/chocolatesinazucar-paleta.png" alt="Chocolate Sin Azúcar"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Chocolate Sin Azúcar</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/volcan-paleta.png" alt="Volcán Guapaletas"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Volcán Guapaletas</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/mantecol-paleta.png" alt="Mantecol"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Mantecol</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/coco-paleta.png" alt="Coco y Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Coco & Dulce de Leche</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/bombon-paleta.png" alt="Bombón Americano"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Bombón Americano</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/dulcegranizado-paleta.png" alt="Dulce de Leche Granizado"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Dulce de Leche Granizado</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/after8-paleta.png" alt="After 8"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>After 8</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/americana-paleta.png" alt="Americana"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Americana</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/chocolate-paleta.png" alt="Chocolate"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Chocolate</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/anana-paleta.png" alt="Ananá"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Ananá</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/vainilla-paleta.png" alt="Vainilla"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Vainilla</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/limon-paleta.png" alt="Limón"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Limón</h3><span class="cat-price">$4.500</span></div></div>
-      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/frutillaxs-paleta.png" alt="Frutilla XS"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Frutilla</h3><span class="cat-price">$4.500</span></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/cookiesxs-paleta.png" alt="Cookies & Cream XS"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Cookies & Cream</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/mandarina-paleta.png" alt="Mandarina y Naranja"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Mandarina & Naranja</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/dulcevaquita-paleta.png" alt="Dulce de Leche Vaquita"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Dulce de Leche Vaquita</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/frutillasinazucar-paleta.png" alt="Frutilla Sin Azúcar"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Frutilla Sin Azúcar</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/chocolatesinazucar-paleta.png" alt="Chocolate Sin Azúcar"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Chocolate Sin Azúcar</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/volcan-paleta.png" alt="Volcán Guapaletas"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Volcán Guapaletas</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/mantecol-paleta.png" alt="Mantecol"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Mantecol</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/coco-paleta.png" alt="Coco y Dulce de Leche"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Coco & Dulce de Leche</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/bombon-paleta.png" alt="Bombón Americano"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Bombón Americano</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/dulcegranizado-paleta.png" alt="Dulce de Leche Granizado"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Dulce de Leche Granizado</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/after8-paleta.png" alt="After 8"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>After 8</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/americana-paleta.png" alt="Americana"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Americana</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/chocolate-paleta.png" alt="Chocolate"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Chocolate</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/anana-paleta.png" alt="Ananá"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Ananá</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/vainilla-paleta.png" alt="Vainilla"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Vainilla</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/limon-paleta.png" alt="Limón"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Limón</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="xs"><div class="cat-card-img-wrap"><img src="img/frutillaxs-paleta.png" alt="Frutilla XS"/></div><div class="cat-card-info"><span class="cat-size xs">XS</span><h3>Frutilla</h3><span class="cat-price">$4.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
 
       <!-- Guapotes -->
-      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/chocolatedulce-guapote.png" alt="Chocolate y Dulce de Leche Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Chocolate & Dulce de Leche</h3><span class="cat-price">$6.500</span></div></div>
-      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/cremafrutilla-guapote.png" alt="Crema de Frutillas"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Crema de Frutillas</h3><span class="cat-price">$6.500</span></div></div>
-      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/cremafrutilla-guapote.png" alt="Cookies & Cream Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Cookies & Cream</h3><span class="cat-price">$6.500</span></div></div>
-      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/superdulce-guapote.png" alt="Super Dulce de Leche Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Super Dulce de Leche</h3><span class="cat-price">$6.500</span></div></div>
-      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/pistacho-guapote.png" alt="Pistacho Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Pistacho</h3><span class="cat-price">$6.500</span></div></div>
+      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/chocolatedulce-guapote.png" alt="Chocolate y Dulce de Leche Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Chocolate & Dulce de Leche</h3><span class="cat-price">$6.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/cremafrutilla-guapote.png" alt="Crema de Frutillas"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Crema de Frutillas</h3><span class="cat-price">$6.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/cremafrutilla-guapote.png" alt="Cookies & Cream Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Cookies & Cream</h3><span class="cat-price">$6.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/superdulce-guapote.png" alt="Super Dulce de Leche Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Super Dulce de Leche</h3><span class="cat-price">$6.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
+      <div class="cat-card" data-cat="guapote"><div class="cat-card-img-wrap"><img src="img/pistacho-guapote.png" alt="Pistacho Guapote"/></div><div class="cat-card-info"><span class="cat-size guapote">Guapote</span><h3>Pistacho</h3><span class="cat-price">$6.500</span><button class="cat-card-btn" aria-label="Pedir">&#8594;</button></div></div>
 
     </div>
   </div>
@@ -445,24 +372,33 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Columna izquierda: texto -->
     <div class="foodtruck-text reveal">
-      <span class="section-tag tag-celeste">🚚 Encontranos</span>
-      <h2>Nuestro <em>Foodtruck</em></h2>
-      <p>Guapaletas nació sobre ruedas. Nuestro foodtruck recorre Río Gallegos llevando paletas artesanales frescas, sabores únicos y mucha energía a cada rincón de la ciudad.</p>
-      <p>📍 <strong>Proximamente abriremos nuestro local fijo</strong> para que puedas visitarnos cuando quieras. ¡Estate atento a nuestras redes!</p>
-      <a
-        href="https://www.google.com/maps?q=-51.6170000,-69.2069722&entry=gps&shh=CAE&lucs=,94259549,94297699,100808508,94284478,94231188,94280568,47071704,94218641,94282134,100799872,94286869&g_ep=CAISEjI2LjE2LjAuODk4OTU0MjE1MBgAINeCAyplLDk0MjU5NTQ5LDk0Mjk3Njk5LDEwMDgwODUwOCw5NDI4NDQ3OCw5NDIzMTE4OCw5NDI4MDU2OCw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA3OTk4NzIsOTQyODY4NjlCAkFS&skid=fb0a3035-b4e3-4528-88d3-cadee45e668f&g_st=iw"
-        target="_blank"
-        rel="noopener"
-        class="btn-primary foodtruck-map-btn"
-        id="link-mapa"
-      >
-        📍 Ver ubicación en el mapa
-      </a>
+      <span class="section-tag tag-lima">🚚 Nuestro espacio</span>
+      <h2>¿Dónde <em>encontrarnos?</em></h2>
+      <p>Podés disfrutar de nuestras paletas artesanales en dos lugares: nuestro <strong>Foodtruck en la Costanera</strong> de Río Gallegos, recorriendo la ciudad con sabores únicos, o visitarnos en <strong>nuestro local fijo</strong>, donde encontrarás toda la experiencia Guapaletas bajo un mismo techo.</p>
+      <div class="foodtruck-btns">
+        <a
+          href="https://www.google.com/maps?q=-51.6170000,-69.2069722&entry=gps&shh=CAE&lucs=,94259549,94297699,100808508,94284478,94231188,94280568,47071704,94218641,94282134,100799872,94286869&g_ep=CAISEjI2LjE2LjAuODk4OTU0MjE1MBgAINeCAyplLDk0MjU5NTQ5LDk0Mjk3Njk5LDEwMDgwODUwOCw5NDI4NDQ3OCw5NDIzMTE4OCw5NDI4MDU2OCw0NzA3MTcwNCw5NDIxODY0MSw5NDI4MjEzNCwxMDA3OTk4NzIsOTQyODY4NjlCAkFS&skid=fb0a3035-b4e3-4528-88d3-cadee45e668f&g_st=iw"
+          target="_blank"
+          rel="noopener"
+          class="btn-glass"
+          id="link-mapa"
+        >
+          🚚 Conocé la Foodtruck
+        </a>
+        <a
+          href="https://maps.app.goo.gl/mT9CsTVk7FG4J9h98?g_st=iw"
+          target="_blank"
+          rel="noopener"
+          class="btn-glass btn-glass-alt"
+        >
+          🏠 Conocé el Local
+        </a>
+      </div>
     </div>
 
     <!-- Columna derecha: foto -->
     <div class="foodtruck-img-wrap reveal reveal-delay-2">
-      <img src="img/foodtruck.JPG" alt="Foodtruck Guapaletas en Río Gallegos"/>
+      <img src="img/foodtruck.png" alt="Foodtruck Guapaletas en Río Gallegos"/>
     </div>
 
   </div>
@@ -476,9 +412,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>Más de 10.000 personas ya eligieron Guapaletas.</p>
   </div>
   <div class="testimonios-grid" style="max-width:1200px;margin:0 auto">
-    <div class="testimonio-card reveal reveal-delay-1"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"La paleta de pistacho Dubai es una locura. Me la recomendó una amiga y ahora voy todos los fines de semana."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=47" alt="Valentina"/><div class="testimonio-author-info"><strong>Valentina R.</strong><span>Palermo, Buenos Aires</span></div></div></div>
-    <div class="testimonio-card reveal reveal-delay-2"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"Los sabores sin azúcar están buenísimos, no extrañás el azúcar para nada. Ideal para ir con los chicos."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=12" alt="Marcos"/><div class="testimonio-author-info"><strong>Marcos L.</strong><span>Belgrano, Buenos Aires</span></div></div></div>
-    <div class="testimonio-card reveal reveal-delay-3"><div class="testimonio-stars">⭐⭐⭐⭐⭐</div><blockquote>"Fui por la promo 4x3 y salí con 8 paletas. No me arrepiento. Chocolate & Baileys, un crimen de sabor."</blockquote><div class="testimonio-author"><img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=32" alt="Lucía"/><div class="testimonio-author-info"><strong>Lucía M.</strong><span>San Telmo, Buenos Aires</span></div></div></div>
+
+    <div class="testimonio-card reveal reveal-delay-1">
+      <img class="testimonio-bg" src="img/resena1.svg" alt=""/>
+      <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+      <blockquote>"La paleta de pistacho Dubai es una locura. Me la recomendó una amiga y ahora voy todos los fines de semana."</blockquote>
+      <div class="testimonio-author">
+        <img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=47" alt="Valentina"/>
+        <div class="testimonio-author-info"><strong>Valentina R.</strong><span>Río Gallegos</span></div>
+      </div>
+    </div>
+
+    <div class="testimonio-card reveal reveal-delay-2">
+      <img class="testimonio-bg" src="img/resena2.svg" alt=""/>
+      <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+      <blockquote>"Los sabores sin azúcar están buenísimos, no extrañás el azúcar para nada. Ideal para ir con los chicos."</blockquote>
+      <div class="testimonio-author">
+        <img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=12" alt="Marcos"/>
+        <div class="testimonio-author-info"><strong>Marcos L.</strong><span>Río Gallegos</span></div>
+      </div>
+    </div>
+
+    <div class="testimonio-card reveal reveal-delay-3">
+      <img class="testimonio-bg" src="img/resena3.svg" alt=""/>
+      <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
+      <blockquote>"Fui por la promo 4x3 y salí con 8 paletas. No me arrepiento. Chocolate & Baileys, un crimen de sabor."</blockquote>
+      <div class="testimonio-author">
+        <img class="testimonio-avatar" src="https://i.pravatar.cc/100?img=32" alt="Lucía"/>
+        <div class="testimonio-author-info"><strong>Lucía M.</strong><span>Río Gallegos</span></div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -591,52 +555,6 @@ tabs.forEach(tab => {
     });
   });
 });
-
-// Carrusel
-const slides = document.querySelectorAll('.carousel-slide');
-const dotsContainer = document.getElementById('carouselDots');
-const progressBar = document.getElementById('carouselProgress');
-let current = 0;
-let autoplayTimer, progressTimer;
-const INTERVAL = 5000;
-
-// Crear dots
-slides.forEach((_, i) => {
-  const d = document.createElement('button');
-  d.className = 'dot' + (i === 0 ? ' active' : '');
-  d.addEventListener('click', () => goTo(i));
-  dotsContainer.appendChild(d);
-});
-
-function goTo(idx) {
-  slides[current].classList.remove('active');
-  dotsContainer.children[current].classList.remove('active');
-  current = (idx + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  dotsContainer.children[current].classList.add('active');
-  resetProgress();
-}
-
-function resetProgress() {
-  progressBar.style.transition = 'none';
-  progressBar.style.width = '0%';
-  clearTimeout(progressTimer);
-  setTimeout(() => {
-    progressBar.style.transition = `width ${INTERVAL}ms linear`;
-    progressBar.style.width = '100%';
-  }, 20);
-}
-
-function startAutoplay() {
-  clearInterval(autoplayTimer);
-  autoplayTimer = setInterval(() => goTo(current + 1), INTERVAL);
-  resetProgress();
-}
-
-document.getElementById('carouselPrev').addEventListener('click', () => { clearInterval(autoplayTimer); goTo(current - 1); startAutoplay(); });
-document.getElementById('carouselNext').addEventListener('click', () => { clearInterval(autoplayTimer); goTo(current + 1); startAutoplay(); });
-
-startAutoplay();
 </script>
 </body>
 </html>
