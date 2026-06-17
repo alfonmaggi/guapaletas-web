@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Mensaje enviado — Guapaletas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --crema: #F2EDE8;
+      --celeste: #4FC3E8;
+      --celeste-claro: #B8E4F2;
+      --lima: #C8C820;
+      --oliva: #9E9530;
+      --rosa: #F2BBBF;
+      --blanco: #FFFFFF;
+      --texto: #3A3530;
+      --texto-suave: #6B6560;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Montserrat',sans-serif;background:var(--crema);color:var(--texto);min-height:100vh;display:flex;flex-direction:column}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes popIn{0%{opacity:0;transform:scale(0.5)}60%{transform:scale(1.1)}100%{opacity:1;transform:scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+    @keyframes confettiFall{0%{transform:translateY(-20px) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(720deg);opacity:0}}
+    @keyframes sliderScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+    @keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+
+    /* NAVBAR */
+    .navbar{display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:70px;background:rgba(242,237,232,0.98);border-bottom:2px solid var(--celeste-claro);box-shadow:0 4px 24px rgba(79,195,232,.1)}
+    .navbar-logo{display:flex;align-items:center;text-decoration:none}
+    .navbar-logo svg{height:42px;width:auto}
+    .nav-link{font-family:'Montserrat',sans-serif;font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.08em;color:var(--texto);text-decoration:none;padding:.5rem 1.2rem;border-radius:50px;transition:background .25s,color .25s}
+    .nav-link:hover{background:var(--celeste-claro);color:var(--celeste)}
+    .nav-link.primary{background:var(--celeste);color:#fff}
+    .nav-link.primary:hover{background:var(--lima);color:var(--texto)}
+
+    /* SLIDER BANNER */
+    .qualities-slider{background:var(--celeste);overflow:hidden;height:40px;display:flex;align-items:center}
+    .qualities-track{display:flex;white-space:nowrap;animation:sliderScroll 30s linear infinite}
+    .quality-item{display:inline-flex;align-items:center;gap:.6rem;padding:0 2.5rem;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.75rem;text-transform:uppercase;letter-spacing:.12em;color:#fff;border-right:1px solid rgba(255,255,255,.25);height:40px}
+    .quality-dot{width:5px;height:5px;background:rgba(255,255,255,.6);border-radius:50%}
+
+    /* CONFETTI */
+    .confetti-container{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+    .confetti-piece{position:absolute;top:-20px;width:10px;height:10px;border-radius:2px;animation:confettiFall linear forwards}
+
+    /* HERO SUCCESS */
+    .success-hero{flex:1;display:flex;align-items:center;justify-content:center;padding:4rem 5%;position:relative;overflow:hidden}
+    .success-hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(79,195,232,.1) 0%,transparent 70%);top:-200px;right:-150px;pointer-events:none}
+    .success-hero::after{content:'';position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(242,187,191,.2) 0%,transparent 70%);bottom:-100px;left:-80px;pointer-events:none}
+
+    .success-card{background:var(--blanco);border-radius:48px;padding:4rem 3.5rem;max-width:680px;width:100%;text-align:center;box-shadow:0 32px 80px rgba(79,195,232,.15);position:relative;z-index:1;animation:fadeUp .8s ease both}
+
+    .success-icon-wrap{width:110px;height:110px;background:linear-gradient(135deg,var(--celeste-claro) 0%,var(--celeste) 100%);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;animation:popIn .6s .3s both;box-shadow:0 12px 36px rgba(79,195,232,.35)}
+    .success-icon-wrap span{font-size:3.2rem;animation:float 3s ease-in-out infinite}
+
+    .success-card h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3rem);color:var(--texto);margin-bottom:1rem;animation:fadeUp .6s .4s both;opacity:0}
+    .success-card h1 em{color:var(--celeste);font-style:italic}
+
+    .success-card .subtitle{font-size:1.05rem;color:var(--texto-suave);max-width:480px;margin:0 auto 2.5rem;line-height:1.75;animation:fadeUp .6s .5s both;opacity:0}
+
+    .summary-box{background:var(--crema);border-radius:24px;padding:1.8rem 2rem;text-align:left;margin:0 auto 2.5rem;animation:fadeUp .6s .6s both;opacity:0;border:2px solid var(--celeste-claro)}
+    .summary-box h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--texto);margin-bottom:1.2rem;padding-bottom:.8rem;border-bottom:1px solid var(--celeste-claro)}
+    .summary-row{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.7rem;gap:1rem}
+    .summary-row:last-child{margin-bottom:0}
+    .summary-label{font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--texto-suave);flex-shrink:0}
+    .summary-value{font-size:.88rem;color:var(--texto);font-weight:600;text-align:right}
+
+    .tiempo-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(79,195,232,.1);border:1.5px solid var(--celeste-claro);border-radius:50px;padding:.5rem 1.2rem;font-size:.82rem;font-weight:600;color:var(--celeste);margin-bottom:2.5rem;animation:fadeUp .6s .65s both;opacity:0}
+    .tiempo-dot{width:8px;height:8px;background:var(--celeste);border-radius:50%;animation:pulse 1.5s ease-in-out infinite}
+    @keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.5);opacity:.6}}
+
+    .success-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;animation:fadeUp .6s .7s both;opacity:0}
+    .btn-primary{background:var(--celeste);color:#fff;padding:.9rem 2.2rem;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .25s,transform .2s,box-shadow .25s;box-shadow:0 4px 20px rgba(79,195,232,.35);display:inline-flex;align-items:center;gap:.5rem}
+    .btn-primary:hover{background:var(--lima);color:var(--texto);transform:translateY(-3px);box-shadow:0 8px 30px rgba(200,200,32,.35)}
+    .btn-whatsapp{display:inline-flex;align-items:center;gap:.7rem;background:#25D366;color:#fff;padding:.9rem 2.2rem;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .25s,transform .2s;box-shadow:0 4px 20px rgba(37,211,102,.3)}
+    .btn-whatsapp:hover{background:#1ebe5d;transform:translateY(-3px)}
+    .btn-whatsapp svg{width:20px;height:20px;fill:#fff}
+    .btn-outline{background:transparent;color:var(--texto);padding:.9rem 2.2rem;border-radius:50px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:.9rem;text-decoration:none;border:2px solid var(--celeste-claro);transition:all .25s}
+    .btn-outline:hover{border-color:var(--celeste);color:var(--celeste)}
+
+    /* RECOMENDADOS */
+    .recos-section{background:var(--blanco);padding:5rem 5%}
+    .recos-inner{max-width:1000px;margin:0 auto}
+    .recos-section h2{font-family:'Playfair Display',serif;text-align:center;font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:.6rem}
+    .recos-section h2 em{color:var(--celeste);font-style:italic}
+    .recos-section .sub{text-align:center;color:var(--texto-suave);font-size:.9rem;margin-bottom:2.5rem}
+    .recos-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1.2rem}
+    .reco-card{background:var(--crema);border-radius:24px;overflow:hidden;transition:transform .3s,box-shadow .3s}
+    .reco-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(79,195,232,.2)}
+    .reco-card img{width:100%;height:150px;object-fit:cover;transition:transform .4s}
+    .reco-card:hover img{transform:scale(1.06)}
+    .reco-body{padding:1rem 1.2rem 1.3rem}
+    .reco-body h3{font-family:'Playfair Display',serif;font-size:1rem;margin-bottom:.2rem}
+    .reco-body .price{font-family:'Playfair Display',serif;font-size:1rem;color:var(--celeste);font-weight:700}
+
+    /* FOOTER */
+    .footer-mini{background:#1e1b17;padding:2rem 5%;text-align:center;color:rgba(255,255,255,.45);font-size:.78rem}
+    .footer-mini a{color:var(--celeste);text-decoration:none}
+
+    @media(max-width:600px){
+      .success-card{padding:2.5rem 1.5rem;border-radius:32px}
+      .success-actions{flex-direction:column;align-items:center}
+      .navbar .nav-links-desktop{display:none}
+    }
+  </style>
+</head>
+<body>
+
+<!-- CONFETTI -->
+<div class="confetti-container" id="confetti"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="navbar-logo">
+    <svg width="567" height="405" viewBox="0 0 567 405" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M120.447 236.845C122.227 237.346 123.493 241.513 122.654 242.72C122.301 243.221 117.224 243.074 116.708 245.194C117.695 254.854 111.94 292.151 116.635 298.1C118.033 299.867 123.111 301.074 124.126 300.161C124.626 299.719 121.58 291.223 121.344 288.97C120.344 278.987 126.79 251.526 134.369 244.9C139.712 240.232 144.451 243.309 148.218 242.72C149.602 242.5 149.293 239.628 151.589 238.627C157.152 236.183 169.617 237.346 175.387 239.319C187.028 243.295 174.503 245.445 173.356 247.108C171.486 249.818 172.178 297.732 174.916 301.634C177.653 305.536 179.655 299.101 182.995 300.809C191.06 304.917 180.802 317.728 173.429 317.728C169.087 317.728 164.79 312.117 161.67 312.014C158.815 311.926 155.577 315.372 152.501 316.034C137.548 319.259 131.867 309.187 128.1 309.276C125.863 309.32 122.522 311.941 118.931 312.029C115.34 312.117 112.293 309.968 109.055 310.733C106.789 311.263 103.875 314.738 100.873 315.916C93.5876 318.788 86.3319 318.508 79.4589 314.665C76.4419 314.444 70.5108 302.532 68.2296 304.578C67.5526 305.182 65.1684 315.077 65.2125 317.021C65.3597 322.911 69.0685 331.068 69.6572 337.724C71.0406 353.302 71.9236 383.959 61.5921 395.871C34.3356 427.293 10.4346 369.161 26.7414 347.751L41.709 322.248C22.0613 326.533 2.28123 316.446 0.456278 295.052C-1.17735 275.983 1.36875 259.094 11.6709 242.853C22.3704 225.993 24.6957 233.032 39.8693 235.034C44.4905 235.653 48.9352 231.971 54.9104 236.168C63.7261 242.367 55.661 268.827 57.8539 278.869L60.8415 295.729C61.3566 291.4 65.9043 288.764 66.6843 284.627C67.8028 278.648 67.6115 254.382 66.8609 247.83C66.4341 244.105 60.7532 244.782 60.8709 240.541C61.651 237.228 81.0631 235.167 83.9771 236.418C92.2483 239.996 83.256 242.249 82.9028 243.751C80.7393 253.116 80.3125 282.227 81.5929 291.93C83.7564 308.157 94.4559 306.507 96.1925 290.59C97.4729 278.855 98.1058 261.141 97.7231 249.288C97.576 244.87 96.222 241.145 96.1778 236.845C102.698 238.009 114.825 235.255 120.461 236.845H120.447Z" fill="#5BC6E4"/>
+      <path d="M436.016 175.149C437.075 180.553 431.144 191.331 433.882 195.689C436.619 200.048 451.027 187.385 451.027 202.242C451.027 218.571 434.765 205.687 433.205 214.022C434.161 234.297 431.88 255.707 433.205 275.85C433.72 283.566 434.647 303.312 445.611 301.677C454.78 300.308 447.289 289.205 446.597 283.08C445.391 272.257 451.866 240.982 462.654 236.153C466.893 234.253 471.367 236.315 474.855 235.416C476.356 235.034 476.253 232.427 477.327 231.735C480.609 229.6 506.497 231.338 508.189 233.988C511.207 238.7 504.128 238.774 502.317 240.482C498.932 243.692 502.567 247.432 502.42 250.907C502.288 254.102 500.934 256.944 500.89 259.683C500.801 264.63 501.125 293.181 503.745 295.08C510.691 300.146 506.526 290.089 506.703 286.231C507.115 277.337 513.223 270.962 522.274 272.081C534.637 273.612 519.581 297.495 533.974 298.791C549.413 300.19 548.441 274.113 535.829 268.871C530.884 266.809 526.13 268.341 520.743 264.821C513.193 259.889 512.899 248.801 514.224 240.614C515.725 231.308 532.473 223.99 541.407 225.036C566.249 227.936 566.043 261.965 544.615 255.677C539.361 254.131 538.978 247.549 537.874 243.25C537.492 241.777 538.493 238.582 535.49 239.804C531.031 241.615 529.015 249.287 530.236 253.616C530.575 254.853 548.559 260.89 553.475 264.483C582.88 286.025 560.142 328.343 525.335 313.251C521.832 311.734 514.135 304.651 513.399 304.666C512.104 304.666 507.277 314.002 496.842 309.363C494.37 308.274 492.677 304.681 489.896 304.607C483.935 304.46 479.932 313.074 466.922 309.835C463.817 309.069 460.476 305.52 457.783 306.212C455.928 306.683 450.321 312.456 446.023 313.737C429.864 318.551 413.984 307.214 412.527 290.648C410.275 265.219 413.645 235.946 414.057 210.326L399.34 211.813C400.606 208.191 397.751 201.992 398.207 199.459C399.355 193.054 413.057 196.617 414.057 195.616C414.72 194.939 412.63 179.978 416.971 177.181C419.194 175.738 434.073 172.395 436.001 175.149H436.016Z" fill="#5BC6E4"/>
+      <path d="M313.994 235.387C317.497 239.628 307.592 241.454 306.827 243.662C305.488 261.744 305.797 279.237 308.122 297.216C327.269 290.251 321.633 313.472 305.9 312.058C300.749 311.602 297.305 306.139 294.391 306.316C287.518 306.757 285.281 314.311 271.594 310.924C244.602 304.239 249.282 261.921 261.851 244.296C269.474 233.605 271.608 238.847 280.601 236.801C281.646 236.565 281.484 234.327 282.735 234.003C287.753 232.693 311.625 232.501 314.009 235.387H313.994ZM286.017 247.137C275.715 246.578 272.3 261.95 271.461 270.122C270.873 275.836 272.55 298.188 279.409 298.791C286.767 299.454 287.018 287.365 287.474 281.725C288.401 270.226 287.209 258.505 286.017 247.137Z" fill="#5BC6E4"/>
+    </svg>
+  </a>
+  <div class="nav-links-desktop" style="display:flex;gap:1rem;align-items:center">
+    <a href="index.html#catalogo" class="nav-link">Catálogo</a>
+    <a href="index.html#contacto" class="nav-link primary">Contacto</a>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<div class="qualities-slider">
+  <div class="qualities-track">
+    <span class="quality-item"><span class="quality-dot"></span>🎉 ¡Gracias por escribirnos!</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍦 Te respondemos en el día</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍓 Más de 30 sabores te esperan</span>
+    <span class="quality-item"><span class="quality-dot"></span>💛 Hecho con amor en Buenos Aires</span>
+    <span class="quality-item"><span class="quality-dot"></span>🎉 ¡Gracias por escribirnos!</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍦 Te respondemos en el día</span>
+    <span class="quality-item"><span class="quality-dot"></span>🍓 Más de 30 sabores te esperan</span>
+    <span class="quality-item"><span class="quality-dot"></span>💛 Hecho con amor en Buenos Aires</span>
+  </div>
+</div>
+
+<!-- SUCCESS HERO -->
+<section class="success-hero">
+  <div class="success-card">
+    <div class="success-icon-wrap"><span>🍦</span></div>
+
+    <h1>¡Mensaje<br><em>enviado!</em></h1>
+    <p class="subtitle" id="subtitleMsg">Gracias por contactarnos. Recibimos tu consulta y te vamos a responder antes de que se derrita tu paleta 😉</p>
+
+    <div class="summary-box" id="summaryBox" style="display:none">
+      <h3>📋 Resumen de tu consulta</h3>
+      <div class="summary-row" id="rowNombre" style="display:none"><span class="summary-label">Nombre</span><span class="summary-value" id="valNombre"></span></div>
+      <div class="summary-row" id="rowEmail" style="display:none"><span class="summary-label">Email</span><span class="summary-value" id="valEmail"></span></div>
+      <div class="summary-row" id="rowMotivo" style="display:none"><span class="summary-label">Motivo</span><span class="summary-value" id="valMotivo"></span></div>
+      <div class="summary-row" id="rowMensaje" style="display:none"><span class="summary-label">Mensaje</span><span class="summary-value" id="valMensaje" style="max-width:340px;word-break:break-word"></span></div>
+    </div>
+
+    <div class="tiempo-badge"><span class="tiempo-dot"></span>Tiempo de respuesta estimado: menos de 24 hs</div>
+
+    <div class="success-actions">
+      <a href="index.html" class="btn-primary">← Volver al inicio</a>
+      <a href="https://wa.me/5492966231199" target="_blank" rel="noopener" class="btn-whatsapp">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Escribirnos directo
+      </a>
+      <a href="index.html#catalogo" class="btn-outline">Ver catálogo</a>
+    </div>
+  </div>
+</section>
+
+<!-- RECOMENDADOS -->
+<section class="recos-section">
+  <div class="recos-inner">
+    <h2>Mientras esperás… <em>descubrí más sabores</em></h2>
+    <p class="sub">Estos son algunos de nuestros favoritos que quizás todavía no probaste</p>
+    <div class="recos-grid">
+      <div class="reco-card">
+        <img src="https://images.unsplash.com/photo-1568702846914-96b305d2aaeb?w=400&auto=format&fit=crop" alt="Pistacho Dubai"/>
+        <div class="reco-body"><h3>Pistacho Dubai</h3><div class="price">$8.000</div></div>
+      </div>
+      <div class="reco-card">
+        <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=400&auto=format&fit=crop" alt="Chocolate DDL"/>
+        <div class="reco-body"><h3>Choco & Dulce de Leche</h3><div class="price">$5.900</div></div>
+      </div>
+      <div class="reco-card">
+        <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?w=400&auto=format&fit=crop" alt="Cookies Cream"/>
+        <div class="reco-body"><h3>Cookies & Cream</h3><div class="price">$4.500</div></div>
+      </div>
+      <div class="reco-card">
+        <img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=400&auto=format&fit=crop" alt="Tramontana"/>
+        <div class="reco-body"><h3>Tramontana</h3><div class="price">$5.900</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer-mini">
+  <p>© 2025 Guapaletas — <a href="index.html">Volver al sitio</a> · <a href="https://wa.me/5492966231199" target="_blank">WhatsApp</a></p>
+</footer>
+
+<script>
+  // Leer parámetros del formulario
+  const params = new URLSearchParams(window.location.search);
+  const nombre  = params.get('nombre');
+  const email   = params.get('email');
+  const motivo  = params.get('motivo');
+  const mensaje = params.get('mensaje');
+
+  const motivoLabels = { pedido:'Pedido especial / evento', sabores:'Consulta sobre sabores', franquicia:'Franquicia / locales', otro:'Otro' };
+
+  if (nombre || email || motivo) {
+    document.getElementById('summaryBox').style.display = 'block';
+    if (nombre) { document.getElementById('rowNombre').style.display = 'flex'; document.getElementById('valNombre').textContent = nombre; }
+    if (email)  { document.getElementById('rowEmail').style.display = 'flex';  document.getElementById('valEmail').textContent  = email; }
+    if (motivo) { document.getElementById('rowMotivo').style.display = 'flex'; document.getElementById('valMotivo').textContent = motivoLabels[motivo] || motivo; }
+    if (mensaje){ document.getElementById('rowMensaje').style.display = 'flex'; document.getElementById('valMensaje').textContent = mensaje; }
+    if (nombre) document.getElementById('subtitleMsg').textContent = `¡Gracias, ${nombre}! Recibimos tu consulta y te vamos a responder antes de que se derrita tu paleta 😉`;
+  }
+
+  // Confetti
+  const colors = ['#4FC3E8','#C8C820','#F2BBBF','#9E9530','#B8E4F2','#F2EDE8'];
+  const container = document.getElementById('confetti');
+  for (let i = 0; i < 60; i++) {
+    const piece = document.createElement('div');
+    piece.className = 'confetti-piece';
+    piece.style.cssText = `
+      left: ${Math.random()*100}%;
+      background: ${colors[Math.floor(Math.random()*colors.length)]};
+      width: ${6+Math.random()*8}px;
+      height: ${6+Math.random()*8}px;
+      border-radius: ${Math.random()>.5?'50%':'2px'};
+      animation-duration: ${2+Math.random()*3}s;
+      animation-delay: ${Math.random()*2}s;
+    `;
+    container.appendChild(piece);
+  }
+  setTimeout(() => container.remove(), 6000);
+</script>
+</body>
+</html>
